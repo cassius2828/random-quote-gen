@@ -35,24 +35,20 @@ export default function Text() {
     // do rnandom quote logic 
   }
 
-  console.log(quoteArr[10].text);
-
-  // return (
-  //   <>
-  //     {" "}
-  //     {quoteArr.forEach((quote) => (
-  //       <>
-  //         <h2>
-  //           <FontAwesomeIcon icon={faQuoteLeft} />
-  //           {quote}
-  //         </h2>
-  //         <p>- {author}</p>
-  //       </>
-  //     ))}
-  //   </>
-  // );
-
-  return <h1>{quoteArr[10].text}</h1>;
+  // console.log(quoteArr[10].text);
+const randomNum = Math.floor(Math.random() * 100);
+  return (
+    <>
+      {" "}
+      <>
+        <h2>
+          <FontAwesomeIcon icon={faQuoteLeft} />
+          {quoteArr[randomNum].text}
+        </h2>
+        <p>- {quoteArr[randomNum].author}</p>
+      </>
+    </>
+  );
 }
 
 //? Quote API Below
@@ -68,6 +64,10 @@ fetch("https://type.fit/api/quotes")
 
 */
 
+// {/* {quoteArr.forEach((quote) => (
+       
+      // ))} */
+    // }
 /*
 
 everytime I click the submit button 2 things happen
