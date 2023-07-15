@@ -3,10 +3,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSquareTwitter } from "@fortawesome/free-brands-svg-icons";
 import { faSquareTumblr } from "@fortawesome/free-brands-svg-icons";
 
-export default function Buttons() {
+const Buttons = (handleClick) => {
+  console.log(handleClick);
   return (
     <div>
-      <a className="f6 link dim ba bw2 ph3 pv2 mb2 dib" href="#0">
+      <a
+        className="f6 link dim ba bw2 ph3 pv2 mb2 dib"
+        href="#0"
+        onClick={handleClick}
+      >
         Next Quote
       </a>
       <div className="container">
@@ -17,4 +22,6 @@ export default function Buttons() {
       </div>
     </div>
   );
-}
+};
+
+export default Buttons;

@@ -7,13 +7,14 @@ import { useEffect, useState } from "react";
 export default function Text() {
   const [quote, setQuote] = useState("");
   const [author, setAuthor] = useState("");
+  const [quoteArr, setquoteArr] = useState([]);
 
   const fetchQuotes = async () => {
     let quoteArr = [];
     try {
       const data = await axios.get("https://type.fit/api/quotes");
       console.log(data);
-      quoteArr = data.data;
+      setquoteArr(data.data);
     } catch (error) {
       console.log(error);
     }
@@ -30,16 +31,28 @@ export default function Text() {
     fetchQuotes();
   }, []);
 
-  return (
-    <>
-      {" "}
-      <h2>
-        <FontAwesomeIcon icon={faQuoteLeft} />
-        {quote}
-      </h2>
-      <p>- {author}</p>
-    </>
-  );
+  const getRandomQuote = () => {
+    // do rnandom quote logic 
+  }
+
+  console.log(quoteArr[10].text);
+
+  // return (
+  //   <>
+  //     {" "}
+  //     {quoteArr.forEach((quote) => (
+  //       <>
+  //         <h2>
+  //           <FontAwesomeIcon icon={faQuoteLeft} />
+  //           {quote}
+  //         </h2>
+  //         <p>- {author}</p>
+  //       </>
+  //     ))}
+  //   </>
+  // );
+
+  return <h1>{quoteArr[10].text}</h1>;
 }
 
 //? Quote API Below
