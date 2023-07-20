@@ -3,8 +3,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux/es/hooks/useSelector";
 
-export default function Text() {
+// exports
+export const randomQuoteNum = Math.floor(Math.random() * 1643);
+
+const Text = () => {
   const [quote, setQuote] = useState("");
   const [author, setAuthor] = useState("");
   const [quoteArr, setquoteArr] = useState([]);
@@ -31,25 +35,30 @@ export default function Text() {
     fetchQuotes();
   }, []);
 
-  const getRandomQuote = () => {
-    // do rnandom quote logic 
-  }
+  // const getRandomQuote = () => {
+  //   // do rnandom quote logic
+  // };
 
   // console.log(quoteArr[10].text);
-const randomNum = Math.floor(Math.random() * 100);
+  // const randomQuoteNum = Math.floor(Math.random() * 1643);
+
+  const newQuoteState = useSelector((state) => state.quote);
+
   return (
     <>
       {" "}
       <>
         <h2>
           <FontAwesomeIcon icon={faQuoteLeft} />
-          {quoteArr[randomNum].text}
+          {quoteArr[newQuoteState].text}
         </h2>
-        <p>- {quoteArr[randomNum].author}</p>
+        <p>- {quoteArr[newQuoteState].author}</p>
       </>
     </>
   );
-}
+};
+
+export default Text;
 
 //? Quote API Below
 /*
@@ -65,9 +74,9 @@ fetch("https://type.fit/api/quotes")
 */
 
 // {/* {quoteArr.forEach((quote) => (
-       
-      // ))} */
-    // }
+
+// ))} */
+// }
 /*
 
 everytime I click the submit button 2 things happen
@@ -83,3 +92,11 @@ if(prevIndex < index) {
 }
 
 */
+
+//? I think the error is bc the part of the data arr I am trying to access either
+//? wont load, the number is not a number given in the array index, or something was
+//? done to affect the array / ability to access the array
+
+
+//* It claims the issue is on the Text component, but I am having a hard time figureing out 
+//* what made it stop working when it worked fine earlier

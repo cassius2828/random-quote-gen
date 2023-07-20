@@ -5,12 +5,12 @@ import "./index.css";
 import Text from "./Text";
 import Buttons from "./Buttons";
 // font awesome imports
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
-import { faSquareTwitter } from "@fortawesome/free-brands-svg-icons";
-import { faSquareTumblr } from "@fortawesome/free-brands-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
+// import { faSquareTwitter } from "@fortawesome/free-brands-svg-icons";
+// import { faSquareTumblr } from "@fortawesome/free-brands-svg-icons";
 // API import
-import axios from "axios";
+// import axios from "axios";
 import { useEffect, useState } from "react";
 
 // export function Buttons({ value, onButtonClick }) {
