@@ -18,6 +18,7 @@ const Text = () => {
     try {
       const data = await axios.get("https://type.fit/api/quotes");
       setquoteArr(data.data);
+      console.log(data);
     } catch (error) {
       console.log(error);
     }
