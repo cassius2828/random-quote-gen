@@ -2,8 +2,6 @@ import { combineReducers } from "redux";
 import { NEW_COLOR, NEW_QUOTE } from "./Action";
 import { randomQuoteNum } from "../Text";
 
-export const randomColorNum = Math.floor(Math.random() * 11);
-
 // copy of state
 
 // const defaultState =
@@ -27,7 +25,7 @@ export const randomColorNum = Math.floor(Math.random() * 11);
 const colorReducer = (state = 0, action) => {
   switch (action.type) {
     case NEW_COLOR:
-      return randomColorNum;
+      return Math.floor(Math.random() * 11);
     //   return colors[randomColorNum];
     default:
       return state;
@@ -39,7 +37,7 @@ const colorReducer = (state = 0, action) => {
 const quoteReducer = (state = 0, action) => {
   switch (action.type) {
     case NEW_QUOTE:
-      return randomQuoteNum;
+      return Math.floor(Math.random() * 1643);
     // return colors[randomQuoteNum];
     default:
       return state;
