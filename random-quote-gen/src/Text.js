@@ -32,6 +32,7 @@ const Text = () => {
 
   useEffect(() => {
     fetchQuotes();
+
   }, []);
 
   // const getRandomQuote = () => {
@@ -49,9 +50,9 @@ const Text = () => {
       <>
         <h2>
           <FontAwesomeIcon icon={faQuoteLeft} />
-          { console.log('!!! empty on 1st render, full on the 2nd render!!! ' + quoteArr)/* {quoteArr[newQuoteState].text} */}
+          {quoteArr[3] ? quoteArr[newQuoteState].text : console.log('array is empty')}
         </h2>
-        {/* <p>- {quoteArr[newQuoteState].author}</p> */}
+        <p>- {quoteArr[3] ? quoteArr[newQuoteState].author : console.log('array is empty')}</p>
       </>
     </>
   );
