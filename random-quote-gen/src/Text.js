@@ -14,10 +14,9 @@ const Text = () => {
   const [quoteArr, setquoteArr] = useState([]);
 
   const fetchQuotes = async () => {
-    let quoteArr = [];
+    // let quoteArr = [];
     try {
       const data = await axios.get("https://type.fit/api/quotes");
-      console.log(data);
       setquoteArr(data.data);
     } catch (error) {
       console.log(error);
@@ -50,9 +49,9 @@ const Text = () => {
       <>
         <h2>
           <FontAwesomeIcon icon={faQuoteLeft} />
-          {quoteArr[newQuoteState].text}
+          { console.log('!!! empty on 1st render, full on the 2nd render!!! ' + quoteArr)/* {quoteArr[newQuoteState].text} */}
         </h2>
-        <p>- {quoteArr[newQuoteState].author}</p>
+        {/* <p>- {quoteArr[newQuoteState].author}</p> */}
       </>
     </>
   );
