@@ -100,3 +100,5 @@ if(prevIndex < index) {
 
 //* It claims the issue is on the Text component, but I am having a hard time figureing out 
 //* what made it stop working when it worked fine earlier
+
+// test 
