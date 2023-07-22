@@ -21,7 +21,17 @@ code {
 
 * {
   transition: all .3 ease-in-out;
+  box-sizing: border-box;
 } 
+
+/* text */
+
+#text {
+  min-height: 5rem;
+  max-height: 5rem;
+}
+
+
 
 /* arrow buttons */
 
