@@ -4,11 +4,8 @@ import { faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux/es/hooks/useSelector";
-import './transition.css';
-
 
 // exports
-
 
 const Text = () => {
   const [quoteArr, setquoteArr] = useState([]);
@@ -26,40 +23,34 @@ const Text = () => {
     fetchQuotes();
   }, []);
 
-const colors = [
-  "#FF6633",
-  "#21d214",
-  "#d61a1a",
-  "#0ed6d3",
-  "#ba9a2f",
-  "#3369ff",
-  "#60514c",
-  "#32724f",
-  "#c91ead",
-  "#d82b6b",
-  "#3029fb",
-  "#657077",
-  "#99de3f",
-  "#b433ff",
-  "#590e0e",
-  "#131142",
-];
+  const colors = [
+    "#FF6633",
+    "#21d214",
+    "#d61a1a",
+    "#0ed6d3",
+    "#ba9a2f",
+    "#3369ff",
+    "#60514c",
+    "#32724f",
+    "#c91ead",
+    "#d82b6b",
+    "#3029fb",
+    "#657077",
+    "#99de3f",
+    "#b433ff",
+    "#590e0e",
+    "#131142",
+  ];
 
   const newQuoteState = useSelector((state) => state.quote);
   const newColorState = useSelector((state) => state.color);
-  const newFadeState = useSelector((state) => state.fade);
-  const noFadeState = useSelector((state) => state.noFade);
-  console.log(newFadeState);
-  console.log(noFadeState);
-
 
   return (
     <>
       {" "}
-      <div className={noFadeState}>
-        
-
+      <div id="quote-box">
         <h2
+          id="text"
           style={{
             color: colors[newColorState],
             transition: "all .5s ease-in-out",
@@ -71,6 +62,7 @@ const colors = [
             : console.log("array is empty")}
         </h2>
         <p
+          id="author"
           style={{
             color: colors[newColorState],
             transition: "all .5s ease-in-out",
@@ -83,14 +75,12 @@ const colors = [
               : "anonymous"
             : console.log("array is empty")}
         </p>
-
       </div>
     </>
   );
 };
 
 export default Text;
-
 
 //! keyframes info below
 /*
@@ -112,12 +102,6 @@ animation-name: ${textFade};
 animation-duration: .5s;
 `;
 */
-
-
-
-
-
-
 
 //? Quote API Below
 /*
