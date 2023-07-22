@@ -22,3 +22,12 @@ code {
 * {
   transition: all .3 ease-in-out;
 } 
+
+/* arrow buttons */
+
+.arrow-container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+

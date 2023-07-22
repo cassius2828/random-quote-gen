@@ -1,11 +1,17 @@
 import tachyons from "tachyons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSquareTwitter } from "@fortawesome/free-brands-svg-icons";
-import { faSquareTumblr } from "@fortawesome/free-brands-svg-icons";
+import {
+  faSquareTwitter,
+  faSquareTumblr,
+} from "@fortawesome/free-brands-svg-icons";
+import {
+  faArrowAltCircleLeft,
+  faArrowAltCircleRight,
+} from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
-import { newColor, newQuote } from "./Redux/Action";
+import { decrement, decrementColor, increment, incrementColor, newColor, newQuote } from "./Redux/Action";
 import { useSelector } from "react-redux";
-import { useState } from "react";
+import "./index.css";
 
 export const colors = [
   "#FF6633",
@@ -29,6 +35,7 @@ export const colors = [
 const Buttons = () => {
   const dispatch = useDispatch();
   const newColorState = useSelector((state) => state.color);
+  const quoteState = useSelector((state) => state.quote);
 
   return (
     <div>
@@ -68,6 +75,42 @@ const Buttons = () => {
             icon={faSquareTumblr}
           />
         </a>
+        <div className="arrow-container">
+          <FontAwesomeIcon
+            style={{
+              color: colors[newColorState],
+              transition: "all .5s ease-in-out",
+            }}
+            onClick={() => {
+              dispatch(decrement());
+              dispatch(decrementColor());
+            }}
+            size="3x"
+            className=" arrow left ml2"
+            icon={faArrowAltCircleLeft}
+          />
+          <p
+            style={{
+              color: colors[newColorState],
+              transition: "all .5s ease-in-out",
+            }}
+          >
+            Quote #{quoteState}
+          </p>
+          <FontAwesomeIcon
+            style={{
+              color: colors[newColorState],
+              transition: "all .5s ease-in-out",
+            }}
+            onClick={() => {
+              dispatch(increment());
+              dispatch(incrementColor());
+            }}
+            size="3x"
+            className=" arrow right mr2"
+            icon={faArrowAltCircleRight}
+          />
+        </div>
       </div>
     </div>
   );

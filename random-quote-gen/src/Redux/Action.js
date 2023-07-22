@@ -1,7 +1,12 @@
 export const NEW_COLOR = "NEW_COLOR";
 export const NEW_QUOTE = "NEW_QUOTE";
-export const FADE = "FADE";
-export const NO_FADE = "NO_FADE";
+export const PREV_QUOTE = "NEW_QUOTE";
+export const NEXT_QUOTE = "NEW_QUOTE";
+export const INCREMENT = 'INCREMENT';
+export const INCREMENT_COLOR = "INCREMENT_COLOR";
+export const DECREMENT = 'DECREMENT';
+export const DECREMENT_COLOR = "DECREMENT_COLOR";
+
 
 // action creators
 export const newColor = () => {
@@ -15,3 +20,42 @@ export const newQuote = () => {
     type: NEW_QUOTE,
   };
 };
+
+export const prevQuote = () => {
+  return {
+    type: PREV_QUOTE,
+  }
+}
+
+
+
+export const nextQuote = () => {
+  return{
+type: NEXT_QUOTE,
+  }
+}
+
+export const increment = () => {
+  return {
+    type: INCREMENT
+  }
+};
+
+export const decrement = () => {
+  return {
+    type: DECREMENT,
+  };
+};
+
+export const decrementColor = () => {
+  return {
+    type: DECREMENT_COLOR,
+  };
+};
+
+export const incrementColor = () => {
+  return {
+    type: INCREMENT_COLOR,
+  };
+};
+
