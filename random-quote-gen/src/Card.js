@@ -81,32 +81,14 @@ import { useEffect, useState } from "react";
 // }
 
 export default function Card() {
-  const [quote, setQuote] = useState("");
-  const [author, setAuthor] = useState("");
-  const [color, setColor] = useState("");
 
-  const colors = [
-    "red",
-    "orange",
-    "blue",
-    "skyblue",
-    "lime",
-    "coral",
-    "tan",
-    "yellow",
-    "grey",
-    "black",
-    "pink",
-  ];
 
-  const handleClick = () => {
-    setColor("red");
-  };
+ 
 
   return (
-    <div className={`cardBase bg-white br3 pa3 ${color}`}>
+    <div className={`cardBase bg-white br3 pa3 ${'color'}`}>
       <Text />
-      <Buttons handleClick={handleClick} />
+      <Buttons />
     </div>
   );
 }

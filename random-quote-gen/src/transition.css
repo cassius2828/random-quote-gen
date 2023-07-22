@@ -1,0 +1,20 @@
+.quote-box {
+    opacity: 1;
+    animation: fade 2s linear;
+}
+
+
+@keyframes fade {
+  0%,100% { opacity: 1 }
+  50% { opacity: 0 }
+}
+
+span {
+  transition: 300ms all ease;
+  opacity: 1;
+  will-change: opacity;
+}
+
+.fade {
+  opacity: 0;
+}

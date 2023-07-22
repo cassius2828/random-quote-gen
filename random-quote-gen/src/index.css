@@ -19,3 +19,6 @@ code {
   margin-top: 15rem;
 }
 
+* {
+  transition: all .3 ease-in-out;
+} 
