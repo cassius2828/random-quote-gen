@@ -59,7 +59,7 @@ const Buttons = () => {
           dispatch(newColor());
         }}
       >
-        Next Quote
+        Random Quote
       </a>
       <div className="container">
         <a target="_blank" id="tweet-quote" href="twitter.com/intent/tweet">
