@@ -1,8 +1,15 @@
 import { combineReducers } from "redux";
-import { NEW_COLOR, NEW_QUOTE, INCREMENT, DECREMENT, INCREMENT_COLOR, DECREMENT_COLOR } from "./Action";
+import {
+  NEW_COLOR,
+  NEW_QUOTE,
+  INCREMENT,
+  DECREMENT,
+  INCREMENT_COLOR,
+  DECREMENT_COLOR,
+} from "./Action";
 import { useSelector } from "react-redux";
 
-  // const 0 = useSelector((state) => state.quote);
+// const 0 = useSelector((state) => state.quote);
 let randyC;
 
 const colorReducer = (state = 0, action) => {
@@ -10,9 +17,9 @@ const colorReducer = (state = 0, action) => {
     case NEW_COLOR:
       return (randyC = Math.floor(Math.random() * 16));
     case INCREMENT_COLOR:
-      return (randyC = randyC + 1);
+      return randyC > 14 ? (randyC = 0) : (randyC = randyC + 1);
     case DECREMENT_COLOR:
-      return (randyC = randyC - 1);
+      return randyC <= 0 ? (randyC = 15) : (randyC = randyC - 1);
     default:
       return state;
   }
@@ -25,9 +32,9 @@ const quoteReducer = (state = 0, action) => {
     case NEW_QUOTE:
       return (randyQ = Math.floor(Math.random() * 1643));
     case INCREMENT:
-      return (randyQ = randyQ + 1);
+      return randyQ > 1642 ? (randyQ = 0) : (randyQ = randyQ + 1);
     case DECREMENT:
-      return (randyQ = randyQ - 1);
+      return randyQ <= 0 ? (randyQ = 1643) : (randyQ = randyQ - 1);
     default:
       return state;
   }

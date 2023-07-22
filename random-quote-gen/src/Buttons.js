@@ -9,7 +9,14 @@ import {
   faArrowAltCircleRight,
 } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
-import { decrement, decrementColor, increment, incrementColor, newColor, newQuote } from "./Redux/Action";
+import {
+  decrement,
+  decrementColor,
+  increment,
+  incrementColor,
+  newColor,
+  newQuote,
+} from "./Redux/Action";
 import { useSelector } from "react-redux";
 import "./index.css";
 
