@@ -16,9 +16,9 @@ import {
   incrementColor,
   newColor,
   newQuote,
-} from "./Redux/Action";
+} from "../../Redux/Action";
 import { useSelector } from "react-redux";
-import "./index.css";
+import "../../index.css";
 
 export const colors = [
   "#FF6633",

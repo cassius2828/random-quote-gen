@@ -1,6 +1,7 @@
 // style imports
 import tachyons from "tachyons";
-import "./index.css";
+import "../../index.css";
+
 // component imports
 import Text from "./Text";
 import Buttons from "./Buttons";

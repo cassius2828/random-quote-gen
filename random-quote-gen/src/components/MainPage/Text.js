@@ -12,8 +12,9 @@ const Text = () => {
 
   const fetchQuotes = async () => {
     try {
-      const data = await axios.get("https://type.fit/api/quotes");
+      const data = await axios.get("https://api.api-ninjas.com/v1/quotes");
       setquoteArr(data.data);
+      console.log(data)
     } catch (error) {
       console.log(error);
     }
@@ -57,9 +58,9 @@ const Text = () => {
           }}
         >
           <FontAwesomeIcon icon={faQuoteLeft} />
-          {quoteArr[3]
+          {quoteArr[312]
             ? " " + quoteArr[newQuoteState].text
-            : console.log("array is empty")}
+            : ' *our api is having difficulties*'}
         </h2>
         <p
           id="author"
@@ -69,11 +70,11 @@ const Text = () => {
           }}
         >
           -{" "}
-          {quoteArr[3]
+          {quoteArr[312]
             ? quoteArr[newQuoteState].author
               ? quoteArr[newQuoteState].author
               : "anonymous"
-            : console.log("array is empty")}
+            : ' :('}
         </p>
       </div>
     </>
