@@ -4,7 +4,9 @@ import "../../index.css";
 import { colors } from "../MainPage/Buttons";
 import { useSelector } from "react-redux";
 import { useState } from "react";
-import { robots } from "./TestAPI";
+// import { data } from "./TestAPI";
+import { shorterQuotes } from "../../filteredQuotes";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 export const SearchQuotes = () => {
   const newColorState = useSelector((state) => state.color);
@@ -13,7 +15,7 @@ export const SearchQuotes = () => {
   const searchQuotes = (searchValue) => {
     setSearch(searchValue);
     if (search !== "") {
-      const filteredData = robots.filter((item) => {
+      const filteredData = shorterQuotes.filter((item) => {
         return Object.values(item)
           .join(" ")
           .toLocaleLowerCase()
@@ -21,7 +23,7 @@ export const SearchQuotes = () => {
       });
       setFilteredResults(filteredData);
     } else {
-      setFilteredResults(robots);
+      setFilteredResults(shorterQuotes);
     }
   };
 
@@ -37,16 +39,44 @@ export const SearchQuotes = () => {
         type="search"
         placeholder="search for quotes..."
       />
-      <div className="card-containers">
-        {search.length > 0 ? (filteredResults.map((item) => {
-         return <CardInfo quote={item.quote} author={item.author}/>
-        })) : (robots.map((item) => {
-         return <CardInfo quote={item.quote} author={item.author}/>
-        }))
-        
-        
-        }
-      </div>
+      {/* break */}
+      <InfiniteScroll
+        className="infinite-scroll mb4"
+        dataLength={shorterQuotes.length}
+        next={shorterQuotes}
+        hasMore={true} // Replace with a condition based on your data source
+        height={620}
+      >
+        <div className="card-containers">
+          {search.length > 0
+            ? filteredResults.map((item) => {
+                return <CardInfo quote={item.content} author={item.author} />;
+              })
+            : shorterQuotes.map((item) => {
+                return <CardInfo quote={item.content} author={item.author} />;
+              })}
+        </div>
+      </InfiniteScroll>
+      <footer
+        style={{
+          color: `${colors[newColorState]}`,
+          transition: "all .5s ease-in-out",
+        }}
+        className="tc ma5"
+      >
+        Developed By{" "}
+        <a
+          style={{
+            color: `${colors[newColorState]}`,
+            transition: "all .5s ease-in-out",
+          }}
+          href="https://github.com/cassius2828"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Cassius Reynolds
+        </a>
+      </footer>
     </div>
   );
 };

@@ -5,12 +5,15 @@ import "../../index.css";
 // component imports
 import Text from "./Text";
 import Buttons from "./Buttons";
+import ErrorBoundry from "../../ErrorBoundary";
 
 export default function Card() {
   return (
     <div className={`cardBase bg-white br3 pa3 ${"color"}`}>
-      <Text />
-      <Buttons />
+      <ErrorBoundry>
+        <Text />
+        <Buttons />
+      </ErrorBoundry>
     </div>
   );
 }

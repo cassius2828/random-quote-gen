@@ -1,5 +1,5 @@
 import React from "react";
-import Card from './components/MainPage/Card';
+import Card from "./components/MainPage/Card";
 import tachyons from "tachyons";
 import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
@@ -33,15 +33,25 @@ function App() {
       >
         <Card />
       </div>
-      <p
+
+      <footer
         style={{
           color: `${colors[newColorState]}`,
           transition: "all .5s ease-in-out",
         }}
-        className="tc"
+        className="tc ma5"
       >
-        Developed By Cassius Reynolds
-      </p>
+        Developed By{" "}
+        <a
+          style={{
+            color: `${colors[newColorState]}`,
+            transition: "all .5s ease-in-out",
+          }}
+          href="https://github.com/cassius2828"
+        >
+          Cassius Reynolds{" "}
+        </a>
+      </footer>
     </div>
   );
 }
