@@ -6,6 +6,7 @@ export const INCREMENT = 'INCREMENT';
 export const INCREMENT_COLOR = "INCREMENT_COLOR";
 export const DECREMENT = 'DECREMENT';
 export const DECREMENT_COLOR = "DECREMENT_COLOR";
+export const JUMP_STATE = "JUMP_STATE";
 
 
 // action creators
@@ -56,6 +57,12 @@ export const decrementColor = () => {
 export const incrementColor = () => {
   return {
     type: INCREMENT_COLOR,
+  };
+};
+
+export const jumpState = () => {
+  return {
+    type: JUMP_STATE,
   };
 };
 

@@ -21,9 +21,9 @@ import { useSelector } from "react-redux";
 import "../../index.css";
 
 export const colors = [
-  "#FF6633",
-  "#21d214",
   "#d61a1a",
+  "#21d214",
+  "#FF6633",
   "#0ed6d3",
   "#ba9a2f",
   "#3369ff",
@@ -72,6 +72,9 @@ const Buttons = () => {
             className="icons"
             icon={faSquareTwitter}
           />
+        </a>
+        <a 
+        target="_blank" href="https://www.tumblr.com/?redirect_to=%2F&source=login_wall" rel="noreferrer">
           <FontAwesomeIcon
             style={{
               color: colors[newColorState],

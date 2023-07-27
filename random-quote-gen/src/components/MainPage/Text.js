@@ -36,9 +36,9 @@ const Text = () => {
   const quoteArr = shorterQuotes;
 
   const colors = [
-    "#FF6633",
-    "#21d214",
     "#d61a1a",
+    "#21d214",
+    "#FF6633",
     "#0ed6d3",
     "#ba9a2f",
     "#3369ff",

@@ -7,6 +7,8 @@ import { useState } from "react";
 // import { data } from "./TestAPI";
 import { shorterQuotes } from "../../filteredQuotes";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowAltCircleUp } from "@fortawesome/free-solid-svg-icons";
 
 export const SearchQuotes = () => {
   const newColorState = useSelector((state) => state.color);
@@ -47,15 +49,20 @@ export const SearchQuotes = () => {
         hasMore={true} // Replace with a condition based on your data source
         height={620}
       >
+        <div id="back-to-top"></div>
         <div className="card-containers">
           {search.length > 0
-            ? filteredResults.map((item) => {
-                return <CardInfo quote={item.content} author={item.author} />;
+            ? filteredResults.map((item, index) => {
+                return <CardInfo index={index} key={item._id} quote={item.content} author={item.author} />;
               })
-            : shorterQuotes.map((item) => {
-                return <CardInfo quote={item.content} author={item.author} />;
+            : shorterQuotes.map((item, index) => {
+                return <CardInfo index={index} key={item._id} quote={item.content} author={item.author} />;
               })}
         </div>
+       {/* //!   will style this later */}
+        <a href="#back-to-top">
+          <FontAwesomeIcon className="back-to-top" icon={faArrowAltCircleUp} />
+        </a>
       </InfiniteScroll>
       <footer
         style={{
@@ -86,3 +93,19 @@ export const SearchQuotes = () => {
 //*change state in such a way right? So I will need to look into that
 //? OR, I could make it to where when a card is clicked all other cards disappear and this one grows??
 //?which ever concept is more feasable I will pursue
+
+
+/*
+Things to do
+1: Add dropdown filter by category
+2: make cards clickable and take you to the main screen with the state updated to that card number
+3: style buttons in search section
+4: style the error report when you try to hit next or previous quote on first load
+5: make site fully resposnive 
+5b: take away duplicates and clean number code to match the new length of the data
+6: put it up on github
+7: make a copy and pass the necessary tests for FCC
+
+
+
+*/

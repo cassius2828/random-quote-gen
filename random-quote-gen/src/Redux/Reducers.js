@@ -6,12 +6,13 @@ import {
   DECREMENT,
   INCREMENT_COLOR,
   DECREMENT_COLOR,
+  JUMP_STATE,
 } from "./Action";
 
 // const 0 = useSelector((state) => state.quote);
-let randyC;
+let randyC = 0;
 
-const colorReducer = (state = 0, action) => {
+const colorReducer = (state = randyC, action) => {
   switch (action.type) {
     case NEW_COLOR:
       return (randyC = Math.floor(Math.random() * 16));
@@ -25,19 +26,26 @@ const colorReducer = (state = 0, action) => {
 };
 
 // const quoteState = colors[0]
-let randyQ;
-const quoteReducer = (state = 0, action) => {
+let randyQ = 0;
+const quoteReducer = (state = randyQ, action) => {
   switch (action.type) {
     case NEW_QUOTE:
       return (randyQ = Math.floor(Math.random() * 934));
     case INCREMENT:
-      return randyQ > 933 ? (randyQ = 0) : (randyQ = randyQ + 1);
+      return randyQ > 932 ? (randyQ = 0) : (randyQ = randyQ + 1);
     case DECREMENT:
-      return randyQ <= 0 ? (randyQ = 934) : (randyQ = randyQ - 1);
+      return randyQ <= 0 ? (randyQ = 933) : (randyQ = randyQ - 1);
     default:
       return state;
   }
 };
+
+// const jumpStateReducer = (state, action) => {
+//   switch(action.type) {
+//     case JUMP_STATE:
+//       return 
+//   }
+// }
 
 export const rootReducer = combineReducers({
   color: colorReducer,

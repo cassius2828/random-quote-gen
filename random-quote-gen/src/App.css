@@ -11,6 +11,8 @@
   border-radius: 8px;
 }
 
+
+
 /* footer styles */
 
 footer a {
@@ -24,6 +26,7 @@ footer a::before {
   height: 1.5px;
   border-radius: 4px;
   background-color: #18272F;
+  opacity: .3;
   bottom: 0;
   top: 20px;
   left: 0;

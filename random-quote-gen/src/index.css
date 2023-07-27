@@ -22,6 +22,7 @@ code {
 * {
   transition: all 0.3 ease-in-out;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 /* text */
@@ -66,3 +67,8 @@ code {
 
 /* scrolling section */
 
+.back-to-top {
+  position: absolute;
+  top: 12rem;
+  right: 30rem;
+}
