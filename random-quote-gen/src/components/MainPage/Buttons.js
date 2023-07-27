@@ -73,8 +73,11 @@ const Buttons = () => {
             icon={faSquareTwitter}
           />
         </a>
-        <a 
-        target="_blank" href="https://www.tumblr.com/?redirect_to=%2F&source=login_wall" rel="noreferrer">
+        <a
+          target="_blank"
+          href="https://www.tumblr.com/?redirect_to=%2F&source=login_wall"
+          rel="noreferrer"
+        >
           <FontAwesomeIcon
             style={{
               color: colors[newColorState],
@@ -89,6 +92,7 @@ const Buttons = () => {
           <FontAwesomeIcon
             style={{
               color: colors[newColorState],
+              cursor: "pointer",
               transition: "all .5s ease-in-out",
             }}
             onClick={() => {
@@ -105,12 +109,13 @@ const Buttons = () => {
               transition: "all .5s ease-in-out",
             }}
           >
-            Quote #{quoteState}
+            Quote #{quoteState + 1}
           </p>
           <FontAwesomeIcon
             style={{
               color: colors[newColorState],
               transition: "all .5s ease-in-out",
+              cursor: "pointer",
             }}
             onClick={() => {
               dispatch(increment());

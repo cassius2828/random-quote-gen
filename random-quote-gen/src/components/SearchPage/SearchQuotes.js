@@ -53,10 +53,10 @@ export const SearchQuotes = () => {
         <div className="card-containers">
           {search.length > 0
             ? filteredResults.map((item, index) => {
-                return <CardInfo index={index} key={item._id} quote={item.content} author={item.author} />;
+                return <CardInfo index={index + 1} key={item._id} quote={item.content} author={item.author} />;
               })
             : shorterQuotes.map((item, index) => {
-                return <CardInfo index={index} key={item._id} quote={item.content} author={item.author} />;
+                return <CardInfo index={index + 1} key={item._id} quote={item.content} author={item.author} />;
               })}
         </div>
        {/* //!   will style this later */}

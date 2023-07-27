@@ -25,7 +25,6 @@ const colorReducer = (state = randyC, action) => {
   }
 };
 
-// const quoteState = colors[0]
 let randyQ = 0;
 const quoteReducer = (state = randyQ, action) => {
   switch (action.type) {
