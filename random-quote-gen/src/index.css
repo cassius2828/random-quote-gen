@@ -65,10 +65,10 @@ code {
 }
 
 
-/* scrolling section */
+/* icons in search section */
 
-.back-to-top {
-  position: absolute;
-  top: 12rem;
-  right: 30rem;
+.search-icon-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
 }

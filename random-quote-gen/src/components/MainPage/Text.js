@@ -53,31 +53,32 @@ const Text = () => {
     "#590e0e",
     "#131142",
   ];
- let colors2 = [
-   "#d61a1a",
-   "#21d214",
-   "#FF6633",
-   "#0ed6d3",
-   "#ba9a2f",
-   "#3369ff",
-   "#c9a89d",
-   "#4eba7f",
-   "#c91ead",
-   "#d82b6b",
-   "#9894f7",
-   "#98aab5",
-   "#99de3f",
-   "#9d48cf",
-   "#ff94b0",
-   "#FFF",
- ];
+  let colors2 = [
+    "#d61a1a",
+    "#21d214",
+    "#FF6633",
+    "#0ed6d3",
+    "#ba9a2f",
+    "#3369ff",
+    "#c9a89d",
+    "#4eba7f",
+    "#c91ead",
+    "#d82b6b",
+    "#9894f7",
+    "#98aab5",
+    "#99de3f",
+    "#9d48cf",
+    "#ff94b0",
+    "#FFF",
+  ];
+
+  // useSelectors
   const lightMode = useSelector((state) => state.light);
-
-  lightMode ? (colors = colors) : (colors = colors2);
-
   const newQuoteState = useSelector((state) => state.quote);
   const newColorState = useSelector((state) => state.color);
+  // base set up for light mode vs dark mode toggle
 
+  lightMode ? (colors = colors) : (colors = colors2);
   return (
     <>
       {" "}

@@ -65,12 +65,13 @@ const Buttons = () => {
     "#FFF",
   ];
   const dispatch = useDispatch();
+
+  // useSelectors
   const newColorState = useSelector((state) => state.color);
   const quoteState = useSelector((state) => state.quote);
   const lightMode = useSelector((state) => state.light);
 
-
-
+  // base set up for light mode vs dark mode toggle
   lightMode ? (colors = colors) : (colors = colors2);
 
   return (

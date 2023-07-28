@@ -1,13 +1,20 @@
 import tachyons from "tachyons";
 import { CardInfo } from "./CardInfo";
 import "../../index.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 // import { data } from "./TestAPI";
 import { shorterQuotes } from "../../filteredQuotes";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowAltCircleUp } from "@fortawesome/free-solid-svg-icons";
+import {
+  faArrowAltCircleUp,
+  faMoon,
+  faSun,
+  faHome,
+} from "@fortawesome/free-solid-svg-icons";
+import { goDarkMode, goLightMode } from "../../Redux/Action";
+import { Link } from "react-router-dom";
 
 export const SearchQuotes = () => {
   // I did not export bc of getter vs setter error when using logic for changing array colors in dark mode
@@ -29,27 +36,37 @@ export const SearchQuotes = () => {
     "#590e0e",
     "#131142",
   ];
-let colors2 = [
-  "#d61a1a",
-  "#21d214",
-  "#FF6633",
-  "#0ed6d3",
-  "#ba9a2f",
-  "#3369ff",
-  "#c9a89d",
-  "#4eba7f",
-  "#c91ead",
-  "#d82b6b",
-  "#9894f7",
-  "#98aab5",
-  "#99de3f",
-  "#9d48cf",
-  "#ff94b0",
-  "#FFF",
-];
+  let colors2 = [
+    "#d61a1a",
+    "#21d214",
+    "#FF6633",
+    "#0ed6d3",
+    "#ba9a2f",
+    "#3369ff",
+    "#c9a89d",
+    "#4eba7f",
+    "#c91ead",
+    "#d82b6b",
+    "#9894f7",
+    "#98aab5",
+    "#99de3f",
+    "#9d48cf",
+    "#ff94b0",
+    "#FFF",
+  ];
+
+  // base set up for light mode vs dark mode toggle
   const lightMode = useSelector((state) => state.light);
 
+  lightMode
+    ? (document.body.style.backgroundColor = "white")
+    : (document.body.style.backgroundColor = "rgb(32, 32, 32)");
+
   lightMode ? (colors = colors) : (colors = colors2);
+
+  // base set up for light mode vs dark mode toggle
+
+  const dispatch = useDispatch();
 
   const newColorState = useSelector((state) => state.color);
   const [search, setSearch] = useState("");
@@ -72,10 +89,66 @@ let colors2 = [
 
   return (
     <div className="search-container tc">
+      <div className="search-icon-container mb4">
+        {/* icon 1 */}
+        <Link to="/">
+          <FontAwesomeIcon
+            icon={faHome}
+            size="2x"
+            style={{
+              color: colors[newColorState],
+              transition: "all .5s ease-in-out",
+            }}
+          />
+        </Link>
+        {/* icon 2 */}
+        {lightMode ? (
+          <FontAwesomeIcon
+            className=""
+            style={{
+              color: colors[newColorState],
+              transition: "all .5s ease-in-out",
+              cursor: "pointer",
+            }}
+            icon={faMoon}
+            size="2x"
+            onClick={() => {
+              dispatch(goDarkMode());
+            }}
+          />
+        ) : (
+          <FontAwesomeIcon
+            className=""
+            style={{
+              color: colors[newColorState],
+              cursor: "pointer",
+              transition: "all .5s ease-in-out",
+            }}
+            icon={faSun}
+            size="2x"
+            onClick={() => {
+              dispatch(goLightMode());
+            }}
+          />
+        )}
+        {/* icon 3 */}
+        <a href="#back-to-top">
+          <FontAwesomeIcon
+            className="back-to-top"
+            icon={faArrowAltCircleUp}
+            size="2x"
+            style={{
+              color: colors[newColorState],
+              transition: "all .5s ease-in-out",
+            }}
+          />
+        </a>
+      </div>
       <input
         style={{
           color: colors[newColorState],
           border: `solid 4px ${colors[newColorState]}`,
+          backgroundColor: `transparent`,
         }}
         onChange={(e) => searchQuotes(e.target.value)}
         className="tc f6 dim ba bw2 ph3 pv2 mb2 dib"
@@ -115,9 +188,6 @@ let colors2 = [
               })}
         </div>
         {/* //!   will style this later */}
-        <a href="#back-to-top">
-          <FontAwesomeIcon className="back-to-top" icon={faArrowAltCircleUp} />
-        </a>
       </InfiniteScroll>
       <footer
         style={{

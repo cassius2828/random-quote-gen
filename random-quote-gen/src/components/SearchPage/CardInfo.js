@@ -4,24 +4,7 @@ import { faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
 import "../../index.css";
 import { useSelector } from "react-redux";
 
-const colors = [
-  "#d61a1a",
-  "#21d214",
-  "#FF6633",
-  "#0ed6d3",
-  "#ba9a2f",
-  "#3369ff",
-  "#60514c",
-  "#32724f",
-  "#c91ead",
-  "#d82b6b",
-  "#3029fb",
-  "#657077",
-  "#99de3f",
-  "#b433ff",
-  "#590e0e",
-  "#131142",
-];
+
 
 
 export const CardInfo = ({
@@ -29,8 +12,50 @@ export const CardInfo = ({
   author = "lorem fait",
   index = 'unknown'
 }) => {
-  const newColorState = useSelector((state) => state.color);
+  
+  // I did not export bc of getter vs setter error when using logic for changing array colors in dark mode
+  let colors = [
+    "#d61a1a",
+    "#21d214",
+    "#FF6633",
+    "#0ed6d3",
+    "#ba9a2f",
+    "#3369ff",
+    "#60514c",
+    "#32724f",
+    "#c91ead",
+    "#d82b6b",
+    "#3029fb",
+    "#657077",
+    "#99de3f",
+    "#b433ff",
+    "#590e0e",
+    "#131142",
+  ];
+  let colors2 = [
+    "#d61a1a",
+    "#21d214",
+    "#FF6633",
+    "#0ed6d3",
+    "#ba9a2f",
+    "#3369ff",
+    "#c9a89d",
+    "#4eba7f",
+    "#c91ead",
+    "#d82b6b",
+    "#9894f7",
+    "#98aab5",
+    "#99de3f",
+    "#9d48cf",
+    "#ff94b0",
+    "#FFF",
+  ];
+  // useSelector
+  const lightMode = useSelector((state) => state.light);
 
+  // base set up for light mode vs dark mode toggle
+  lightMode ? (colors = colors) : (colors = colors2);
+  const newColorState = useSelector((state) => state.color);
 
   return (
     <div
