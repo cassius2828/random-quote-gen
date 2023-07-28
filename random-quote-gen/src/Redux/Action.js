@@ -7,6 +7,8 @@ export const INCREMENT_COLOR = "INCREMENT_COLOR";
 export const DECREMENT = 'DECREMENT';
 export const DECREMENT_COLOR = "DECREMENT_COLOR";
 export const JUMP_STATE = "JUMP_STATE";
+export const DARK_MODE = "DARK_MODE";
+export const LIGHT_MODE = "LIGHT_MODE";
 
 
 // action creators
@@ -66,3 +68,14 @@ export const jumpState = () => {
   };
 };
 
+export const goDarkMode = () => {
+  return {
+    type: DARK_MODE,
+  };
+};
+
+export const goLightMode = () => {
+  return {
+    type: LIGHT_MODE,
+  };
+};

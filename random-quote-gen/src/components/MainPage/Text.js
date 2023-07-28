@@ -4,7 +4,7 @@ import { faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
 // import axios from "axios";
 // import { useEffect, useState } from "react";
 import { useSelector } from "react-redux/es/hooks/useSelector";
-import data from '../../quotes.json';
+import data from "../../quotes.json";
 import { shorterQuotes } from "../../filteredQuotes";
 
 // exports
@@ -34,8 +34,8 @@ const Text = () => {
   // }, []);
 
   const quoteArr = shorterQuotes;
-
-  const colors = [
+  // I did not export bc of getter vs setter error when using logic for changing array colors in dark mode
+  let colors = [
     "#d61a1a",
     "#21d214",
     "#FF6633",
@@ -53,6 +53,27 @@ const Text = () => {
     "#590e0e",
     "#131142",
   ];
+ let colors2 = [
+   "#d61a1a",
+   "#21d214",
+   "#FF6633",
+   "#0ed6d3",
+   "#ba9a2f",
+   "#3369ff",
+   "#c9a89d",
+   "#4eba7f",
+   "#c91ead",
+   "#d82b6b",
+   "#9894f7",
+   "#98aab5",
+   "#99de3f",
+   "#9d48cf",
+   "#ff94b0",
+   "#FFF",
+ ];
+  const lightMode = useSelector((state) => state.light);
+
+  lightMode ? (colors = colors) : (colors = colors2);
 
   const newQuoteState = useSelector((state) => state.quote);
   const newColorState = useSelector((state) => state.color);

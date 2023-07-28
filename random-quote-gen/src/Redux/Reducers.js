@@ -7,6 +7,8 @@ import {
   INCREMENT_COLOR,
   DECREMENT_COLOR,
   JUMP_STATE,
+  LIGHT_MODE,
+  DARK_MODE,
 } from "./Action";
 
 // const 0 = useSelector((state) => state.quote);
@@ -39,14 +41,26 @@ const quoteReducer = (state = randyQ, action) => {
   }
 };
 
+const toggleLightModeReducer = (state = true, action) => {
+  switch (action.type) {
+    case DARK_MODE:
+      return (state = false);
+    case LIGHT_MODE:
+      return (state = true);
+    default:
+      return state;
+  }
+};
+
 // const jumpStateReducer = (state, action) => {
 //   switch(action.type) {
 //     case JUMP_STATE:
-//       return 
+//       return
 //   }
 // }
 
 export const rootReducer = combineReducers({
   color: colorReducer,
   quote: quoteReducer,
+  light: toggleLightModeReducer,
 });

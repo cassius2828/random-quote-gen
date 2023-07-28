@@ -1,7 +1,6 @@
 import tachyons from "tachyons";
 import { CardInfo } from "./CardInfo";
 import "../../index.css";
-import { colors } from "../MainPage/Buttons";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 // import { data } from "./TestAPI";
@@ -11,9 +10,51 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowAltCircleUp } from "@fortawesome/free-solid-svg-icons";
 
 export const SearchQuotes = () => {
+  // I did not export bc of getter vs setter error when using logic for changing array colors in dark mode
+  let colors = [
+    "#d61a1a",
+    "#21d214",
+    "#FF6633",
+    "#0ed6d3",
+    "#ba9a2f",
+    "#3369ff",
+    "#60514c",
+    "#32724f",
+    "#c91ead",
+    "#d82b6b",
+    "#3029fb",
+    "#657077",
+    "#99de3f",
+    "#b433ff",
+    "#590e0e",
+    "#131142",
+  ];
+let colors2 = [
+  "#d61a1a",
+  "#21d214",
+  "#FF6633",
+  "#0ed6d3",
+  "#ba9a2f",
+  "#3369ff",
+  "#c9a89d",
+  "#4eba7f",
+  "#c91ead",
+  "#d82b6b",
+  "#9894f7",
+  "#98aab5",
+  "#99de3f",
+  "#9d48cf",
+  "#ff94b0",
+  "#FFF",
+];
+  const lightMode = useSelector((state) => state.light);
+
+  lightMode ? (colors = colors) : (colors = colors2);
+
   const newColorState = useSelector((state) => state.color);
   const [search, setSearch] = useState("");
   const [filteredResults, setFilteredResults] = useState([]);
+
   const searchQuotes = (searchValue) => {
     setSearch(searchValue);
     if (search !== "") {
@@ -53,13 +94,27 @@ export const SearchQuotes = () => {
         <div className="card-containers">
           {search.length > 0
             ? filteredResults.map((item, index) => {
-                return <CardInfo index={index + 1} key={item._id} quote={item.content} author={item.author} />;
+                return (
+                  <CardInfo
+                    index={index + 1}
+                    key={item._id}
+                    quote={item.content}
+                    author={item.author}
+                  />
+                );
               })
             : shorterQuotes.map((item, index) => {
-                return <CardInfo index={index + 1} key={item._id} quote={item.content} author={item.author} />;
+                return (
+                  <CardInfo
+                    index={index + 1}
+                    key={item._id}
+                    quote={item.content}
+                    author={item.author}
+                  />
+                );
               })}
         </div>
-       {/* //!   will style this later */}
+        {/* //!   will style this later */}
         <a href="#back-to-top">
           <FontAwesomeIcon className="back-to-top" icon={faArrowAltCircleUp} />
         </a>
@@ -93,7 +148,6 @@ export const SearchQuotes = () => {
 //*change state in such a way right? So I will need to look into that
 //? OR, I could make it to where when a card is clicked all other cards disappear and this one grows??
 //?which ever concept is more feasable I will pursue
-
 
 /*
 Things to do

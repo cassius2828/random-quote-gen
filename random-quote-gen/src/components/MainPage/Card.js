@@ -9,7 +9,7 @@ import ErrorBoundry from "../../ErrorBoundary";
 
 export default function Card() {
   return (
-    <div className={`cardBase bg-white br3 pa3 ${"color"}`}>
+    <div className={`cardBase br3 pa3 ${"color"}`}>
       <ErrorBoundry>
         <Text />
         <Buttons />
