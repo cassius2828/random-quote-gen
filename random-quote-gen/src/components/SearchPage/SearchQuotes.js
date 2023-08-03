@@ -55,6 +55,7 @@ export const SearchQuotes = () => {
     "#FFF",
   ];
 
+  //////////////////////////////////////////////////
   // base set up for light mode vs dark mode toggle
   const lightMode = useSelector((state) => state.light);
 
@@ -65,6 +66,7 @@ export const SearchQuotes = () => {
   lightMode ? (colors = colors) : (colors = colors2);
 
   // base set up for light mode vs dark mode toggle
+  //////////////////////////////////////////////////
 
   const dispatch = useDispatch();
 
@@ -82,7 +84,8 @@ export const SearchQuotes = () => {
           .includes(search.toLocaleLowerCase());
       });
       setFilteredResults(filteredData);
-    } else {
+    } 
+    else {
       setFilteredResults(shorterQuotes);
     }
   };
@@ -144,6 +147,11 @@ export const SearchQuotes = () => {
           />
         </a>
       </div>
+
+
+
+
+      {/* Search Button */}
       <input
         style={{
           color: colors[newColorState],
@@ -155,7 +163,13 @@ export const SearchQuotes = () => {
         type="search"
         placeholder="search for quotes..."
       />
-      {/* break */}
+
+
+
+
+
+
+      {/* Scroll Display */}
       <InfiniteScroll
         className="infinite-scroll mb4"
         dataLength={shorterQuotes.length}

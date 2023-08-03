@@ -12,7 +12,6 @@ export const CardInfo = ({
   author = "lorem fait",
   index = 'unknown'
 }) => {
-  
   // I did not export bc of getter vs setter error when using logic for changing array colors in dark mode
   let colors = [
     "#d61a1a",
@@ -50,12 +49,15 @@ export const CardInfo = ({
     "#ff94b0",
     "#FFF",
   ];
+  //////////////////////////////////////////////////
+
   // useSelector
   const lightMode = useSelector((state) => state.light);
 
   // base set up for light mode vs dark mode toggle
   lightMode ? (colors = colors) : (colors = colors2);
   const newColorState = useSelector((state) => state.color);
+  //////////////////////////////////////////////////
 
   return (
     <div

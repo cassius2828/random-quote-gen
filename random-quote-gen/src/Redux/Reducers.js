@@ -31,11 +31,11 @@ let randyQ = 0;
 const quoteReducer = (state = randyQ, action) => {
   switch (action.type) {
     case NEW_QUOTE:
-      return (randyQ = Math.floor(Math.random() * 934));
+      return (randyQ = Math.floor(Math.random() * 741));
     case INCREMENT:
-      return randyQ > 932 ? (randyQ = 0) : (randyQ = randyQ + 1);
+      return randyQ > 739 ? (randyQ = 0) : (randyQ = randyQ + 1);
     case DECREMENT:
-      return randyQ <= 0 ? (randyQ = 933) : (randyQ = randyQ - 1);
+      return randyQ <= 0 ? (randyQ = 740) : (randyQ = randyQ - 1);
     default:
       return state;
   }

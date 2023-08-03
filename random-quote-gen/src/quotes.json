@@ -110,16 +110,6 @@
     "dateModified": "2023-04-14"
   },
   {
-    "_id": "_EC8bhSDQa",
-    "author": "Charles Dickens",
-    "content": "Minds, like bodies, will often fall into a pimpled, ill-conditioned state from mere excess of comfort.",
-    "tags": ["Weakness"],
-    "authorSlug": "charles-dickens",
-    "length": 102,
-    "dateAdded": "2023-04-14",
-    "dateModified": "2023-04-14"
-  },
-  {
     "_id": "jQHjwwHpLN",
     "author": "Thomas Edison",
     "content": "Results! Why, man, I have gotten a lot of results. I know several thousand things that won't work.",
@@ -196,16 +186,6 @@
     "tags": ["Humorous"],
     "authorSlug": "charles-dickens",
     "length": 89,
-    "dateAdded": "2023-04-14",
-    "dateModified": "2023-04-14"
-  },
-  {
-    "_id": "R1DmP1kYtW",
-    "author": "Charles Dickens",
-    "content": "Reflect on your present blessings, of which every man has many; not on your past misfortunes, of which all men have some.",
-    "tags": ["Gratitude"],
-    "authorSlug": "charles-dickens",
-    "length": 121,
     "dateAdded": "2023-04-14",
     "dateModified": "2023-04-14"
   },
@@ -296,16 +276,6 @@
     "tags": ["Education"],
     "authorSlug": "albert-einstein",
     "length": 180,
-    "dateAdded": "2023-04-06",
-    "dateModified": "2023-04-14"
-  },
-  {
-    "_id": "8WhYatXQzF",
-    "author": "Albert Einstein",
-    "content": "If I had only known, I would have been a locksmith.",
-    "tags": ["Humorous"],
-    "authorSlug": "albert-einstein",
-    "length": 51,
     "dateAdded": "2023-04-06",
     "dateModified": "2023-04-14"
   },
@@ -620,16 +590,6 @@
     "dateModified": "2023-04-14"
   },
   {
-    "_id": "rfJp893hM2Z",
-    "author": "The Buddha",
-    "content": "Some do not understand that we must die, But those who do realize this settle their quarrels.",
-    "tags": ["Wisdom", "Life"],
-    "authorSlug": "the-buddha",
-    "length": 93,
-    "dateAdded": "2023-03-30",
-    "dateModified": "2023-04-14"
-  },
-  {
     "_id": "FJHapZ0U5ii",
     "author": "The Buddha",
     "content": "Resolutely train yourself to attain peace.",
@@ -656,16 +616,6 @@
     "tags": ["Wisdom", "Character"],
     "authorSlug": "the-buddha",
     "length": 128,
-    "dateAdded": "2023-03-30",
-    "dateModified": "2023-04-14"
-  },
-  {
-    "_id": "9sgo4-hjyyq",
-    "author": "The Buddha",
-    "content": "Radiate boundless love towards the entire world — above, below, and across — unhindered, without ill will, without enmity.",
-    "tags": ["Wisdom", "Love"],
-    "authorSlug": "the-buddha",
-    "length": 122,
     "dateAdded": "2023-03-30",
     "dateModified": "2023-04-14"
   },
@@ -709,26 +659,7 @@
     "dateAdded": "2023-03-30",
     "dateModified": "2023-04-14"
   },
-  {
-    "_id": "WnJz7QKVKzI",
-    "author": "The Buddha",
-    "content": "The root of suffering is attachment.",
-    "tags": ["Wisdom", "Happiness"],
-    "authorSlug": "the-buddha",
-    "length": 36,
-    "dateAdded": "2023-03-30",
-    "dateModified": "2023-04-14"
-  },
-  {
-    "_id": "HhQM5yo-IxF",
-    "author": "The Buddha",
-    "content": "Just as a solid rock is not shaken by the storm, even so the wise are not affected by praise or blame.",
-    "tags": ["Wisdom", "Character"],
-    "authorSlug": "the-buddha",
-    "length": 102,
-    "dateAdded": "2023-03-30",
-    "dateModified": "2023-04-14"
-  },
+
   {
     "_id": "qLn3nRwjVsb",
     "author": "The Buddha",
@@ -829,26 +760,7 @@
     "dateAdded": "2023-03-30",
     "dateModified": "2023-04-14"
   },
-  {
-    "_id": "9sgo4-hjyyq",
-    "author": "The Buddha",
-    "content": "Radiate boundless love towards the entire world — above, below, and across — unhindered, without ill will, without enmity.",
-    "tags": ["Wisdom", "Love"],
-    "authorSlug": "the-buddha",
-    "length": 122,
-    "dateAdded": "2023-03-30",
-    "dateModified": "2023-04-14"
-  },
-  {
-    "_id": "WnJz7QKVKzI",
-    "author": "The Buddha",
-    "content": "The root of suffering is attachment.",
-    "tags": ["Wisdom", "Happiness"],
-    "authorSlug": "the-buddha",
-    "length": 36,
-    "dateAdded": "2023-03-30",
-    "dateModified": "2023-04-14"
-  },
+
   {
     "_id": "HhQM5yo-IxF",
     "author": "The Buddha",
@@ -929,16 +841,7 @@
     "dateAdded": "2023-03-30",
     "dateModified": "2023-04-14"
   },
-  {
-    "_id": "ExEfYwFimnJ",
-    "author": "The Buddha",
-    "content": "Better it is to live one day seeing the rise and fall of things than to live a hundred years without ever seeing the rise and fall of things.",
-    "tags": ["Wisdom", "Philosophy"],
-    "authorSlug": "the-buddha",
-    "length": 141,
-    "dateAdded": "2023-03-30",
-    "dateModified": "2023-04-14"
-  },
+
   {
     "_id": "e0H2BdwC-Of",
     "author": "The Buddha",
@@ -999,16 +902,7 @@
     "dateAdded": "2023-03-30",
     "dateModified": "2023-04-14"
   },
-  {
-    "_id": "wiVouCxUSmn",
-    "author": "The Buddha",
-    "content": "The thing that is disliked by me is also disliked by others. Since I dislike this thing, how can I inflict it on someone else?",
-    "tags": ["Wisdom", "Philosophy", "Virtue", "Honor"],
-    "authorSlug": "the-buddha",
-    "length": 126,
-    "dateAdded": "2023-03-30",
-    "dateModified": "2023-04-14"
-  },
+
   {
     "_id": "WnJz7QKVKzI",
     "author": "The Buddha",
@@ -1016,16 +910,6 @@
     "tags": ["Wisdom", "Happiness"],
     "authorSlug": "the-buddha",
     "length": 36,
-    "dateAdded": "2023-03-30",
-    "dateModified": "2023-04-14"
-  },
-  {
-    "_id": "MPTVFOHP7ds",
-    "author": "The Buddha",
-    "content": "The world is afflicted by death and decay. But the wise do not grieve, having realized the nature of the world.",
-    "tags": ["Wisdom", "Philosophy"],
-    "authorSlug": "the-buddha",
-    "length": 111,
     "dateAdded": "2023-03-30",
     "dateModified": "2023-04-14"
   },
@@ -1039,26 +923,7 @@
     "dateAdded": "2023-03-30",
     "dateModified": "2023-04-14"
   },
-  {
-    "_id": "BTLWEHRB2C-",
-    "author": "The Buddha",
-    "content": "Should someone do good, let them do it again and again. They should develop this habit, for the accumulation of goodness brings joy.",
-    "tags": ["Wisdom", "Motivational"],
-    "authorSlug": "the-buddha",
-    "length": 132,
-    "dateAdded": "2023-03-30",
-    "dateModified": "2023-04-14"
-  },
-  {
-    "_id": "HhQM5yo-IxF",
-    "author": "The Buddha",
-    "content": "Just as a solid rock is not shaken by the storm, even so the wise are not affected by praise or blame.",
-    "tags": ["Wisdom", "Character"],
-    "authorSlug": "the-buddha",
-    "length": 102,
-    "dateAdded": "2023-03-30",
-    "dateModified": "2023-04-14"
-  },
+
   {
     "_id": "qLn3nRwjVsb",
     "author": "The Buddha",
@@ -1079,36 +944,7 @@
     "dateAdded": "2023-03-30",
     "dateModified": "2023-04-14"
   },
-  {
-    "_id": "6_rYXTe8c4S",
-    "author": "The Buddha",
-    "content": "May all beings have happy minds.",
-    "tags": ["Wisdom", "Happiness"],
-    "authorSlug": "the-buddha",
-    "length": 32,
-    "dateAdded": "2023-03-30",
-    "dateModified": "2023-04-14"
-  },
-  {
-    "_id": "ExEfYwFimnJ",
-    "author": "The Buddha",
-    "content": "Better it is to live one day seeing the rise and fall of things than to live a hundred years without ever seeing the rise and fall of things.",
-    "tags": ["Wisdom", "Philosophy"],
-    "authorSlug": "the-buddha",
-    "length": 141,
-    "dateAdded": "2023-03-30",
-    "dateModified": "2023-04-14"
-  },
-  {
-    "_id": "evSH-AgPIXv",
-    "author": "The Buddha",
-    "content": "Both formerly and now, it is only suffering that I describe, and the cessation of suffering.",
-    "tags": ["Wisdom", "Happiness"],
-    "authorSlug": "the-buddha",
-    "length": 92,
-    "dateAdded": "2023-03-30",
-    "dateModified": "2023-04-14"
-  },
+
   {
     "_id": "n7QR1DkeA4V",
     "author": "The Buddha",
@@ -1129,16 +965,7 @@
     "dateAdded": "2023-03-30",
     "dateModified": "2023-04-14"
   },
-  {
-    "_id": "Gl_8IjYm3ny",
-    "author": "The Buddha",
-    "content": "It's a good thing to be satisfied with what one has.",
-    "tags": ["Wisdom", "Self Help"],
-    "authorSlug": "the-buddha",
-    "length": 52,
-    "dateAdded": "2023-03-30",
-    "dateModified": "2023-04-14"
-  },
+
   {
     "_id": "9sgo4-hjyyq",
     "author": "The Buddha",
@@ -1149,36 +976,7 @@
     "dateAdded": "2023-03-30",
     "dateModified": "2023-04-14"
   },
-  {
-    "_id": "vvI7HzgTSh_",
-    "author": "The Buddha",
-    "content": "'As I am, so are these. As are these, so am I.' Drawing the parallel to yourself, neither kill nor get others to kill.",
-    "tags": ["Wisdom", "Virtue", "Honor"],
-    "authorSlug": "the-buddha",
-    "length": 118,
-    "dateAdded": "2023-03-30",
-    "dateModified": "2023-04-14"
-  },
-  {
-    "_id": "mS7GMRZeNuX",
-    "author": "The Buddha",
-    "content": "Let none find fault with others; let none see the omissions and commissions of others. But let one see one's own acts, done and undone.",
-    "tags": ["Wisdom", "Honor"],
-    "authorSlug": "the-buddha",
-    "length": 135,
-    "dateAdded": "2023-03-30",
-    "dateModified": "2023-04-14"
-  },
-  {
-    "_id": "bejpH5vesL0",
-    "author": "The Buddha",
-    "content": "Better than a thousand useless words is one useful word, upon hearing which one attains peace.",
-    "tags": ["Wisdom", "Character"],
-    "authorSlug": "the-buddha",
-    "length": 94,
-    "dateAdded": "2023-03-30",
-    "dateModified": "2023-04-14"
-  },
+
   {
     "_id": "MNoB9t3dfeS",
     "author": "Shaquille O'Neal",
@@ -1229,16 +1027,7 @@
     "dateAdded": "2022-07-06",
     "dateModified": "2023-04-14"
   },
-  {
-    "_id": "Yul4uqMwfA1",
-    "author": "Arnold Palmer",
-    "content": "What other people may find in poetry or art museums, I find in the flight of a good drive.",
-    "tags": ["Sports", "Competition"],
-    "authorSlug": "arnold-palmer",
-    "length": 90,
-    "dateAdded": "2022-07-06",
-    "dateModified": "2023-04-14"
-  },
+
   {
     "_id": "_rEPkuDXaWo",
     "author": "Casey Stengel",
@@ -1290,26 +1079,6 @@
     "dateModified": "2023-04-14"
   },
   {
-    "_id": "hZ2TTJbNHgz",
-    "author": "Mary Kay Ash",
-    "content": "Everyone has an invisible sign hanging from their neck saying, 'Make me feel important.' Never forget this message when working with people.",
-    "tags": ["Business"],
-    "authorSlug": "mary-kay-ash",
-    "length": 140,
-    "dateAdded": "2022-07-06",
-    "dateModified": "2023-04-14"
-  },
-  {
-    "_id": "oPuec6Zts4",
-    "author": "Seneca the Younger",
-    "content": "If one does not know to which port one is sailing, no wind is favorable.",
-    "tags": ["Wisdom"],
-    "authorSlug": "seneca-the-younger",
-    "length": 72,
-    "dateAdded": "2022-07-06",
-    "dateModified": "2023-04-14"
-  },
-  {
     "_id": "k1TVeBO_5Kh",
     "author": "Laurence J. Peter",
     "content": "An economist is an expert who will know tomorrow why the things he predicted yesterday didn't happen today.",
@@ -1319,26 +1088,8 @@
     "dateAdded": "2022-07-06",
     "dateModified": "2023-04-14"
   },
-  {
-    "_id": "pNnzE7wpM0W",
-    "author": "Dee Hock",
-    "content": "An organization, no matter how well designed, is only as good as the people who live and work in it.",
-    "tags": ["Business"],
-    "authorSlug": "dee-hock",
-    "length": 100,
-    "dateAdded": "2022-07-06",
-    "dateModified": "2023-04-14"
-  },
-  {
-    "_id": "r7qJ-YKIq2e",
-    "author": "Earl Monroe",
-    "content": "Just be patient. Let the game come to you. Don't rush. Be quick, but don't hurry.",
-    "tags": ["Sports", "Competition"],
-    "authorSlug": "earl-monroe",
-    "length": 81,
-    "dateAdded": "2022-07-06",
-    "dateModified": "2023-04-14"
-  },
+
+
   {
     "_id": "Gtt0T3mfPbx",
     "author": "Billie Jean King",
@@ -1376,26 +1127,6 @@
     "tags": ["Motivational"],
     "authorSlug": "napoleon-hill",
     "length": 69,
-    "dateAdded": "2022-07-06",
-    "dateModified": "2023-04-14"
-  },
-  {
-    "_id": "sBuAicwO4Z",
-    "author": "Don Marquis",
-    "content": "Ideas pull the trigger, but instinct loads the gun.",
-    "tags": ["Business"],
-    "authorSlug": "don-marquis",
-    "length": 51,
-    "dateAdded": "2022-07-06",
-    "dateModified": "2023-04-14"
-  },
-  {
-    "_id": "yq5LCWQjDJU",
-    "author": "Niccolò Machiavelli",
-    "content": "No enterprise is more likely to succeed than one concealed from the enemy until it is ripe for execution.",
-    "tags": ["Business"],
-    "authorSlug": "niccolo-machiavelli",
-    "length": 105,
     "dateAdded": "2022-07-06",
     "dateModified": "2023-04-14"
   },
@@ -1599,16 +1330,7 @@
     "dateAdded": "2022-07-06",
     "dateModified": "2023-04-14"
   },
-  {
-    "_id": "sBuAicwO4Z",
-    "author": "Don Marquis",
-    "content": "Ideas pull the trigger, but instinct loads the gun.",
-    "tags": ["Business"],
-    "authorSlug": "don-marquis",
-    "length": 51,
-    "dateAdded": "2022-07-06",
-    "dateModified": "2023-04-14"
-  },
+
   {
     "_id": "RiULc-0Ak0",
     "author": "Peter Drucker",
@@ -1669,16 +1391,7 @@
     "dateAdded": "2022-07-06",
     "dateModified": "2023-04-14"
   },
-  {
-    "_id": "lTm3ZNHDrh7",
-    "author": "Bob Knight",
-    "content": "You don't play against opponents, you play against the game of basketball.",
-    "tags": ["Sports", "Competition"],
-    "authorSlug": "bob-knight",
-    "length": 74,
-    "dateAdded": "2022-07-06",
-    "dateModified": "2023-04-14"
-  },
+ 
   {
     "_id": "py0SqUMHGW9",
     "author": "Howard H. Aiken",
@@ -1730,16 +1443,6 @@
     "dateModified": "2023-04-14"
   },
   {
-    "_id": "NIMf1RxZS1N",
-    "author": "Knute Rockne",
-    "content": "One man practicing sportsmanship is far better than a hundred teaching it.",
-    "tags": ["Sports", "Competition"],
-    "authorSlug": "knute-rockne",
-    "length": 74,
-    "dateAdded": "2022-07-06",
-    "dateModified": "2023-04-14"
-  },
-  {
     "_id": "JIk3cbQ8s",
     "author": "Michael Jordan",
     "content": "I've missed more than 9000 shots in my career. I've lost almost 300 games. 26 times, I've been trusted to take the game winning shot and missed. I've failed over and over and over again in my life. And that is why I succeed.",
@@ -1756,26 +1459,6 @@
     "tags": ["Sports", "Competition"],
     "authorSlug": "jim-bouton",
     "length": 130,
-    "dateAdded": "2022-07-06",
-    "dateModified": "2023-04-14"
-  },
-  {
-    "_id": "mdzzSdP_dF",
-    "author": "Colin Powell",
-    "content": "There are no secrets to success. It is the result of preparation, hard work, and learning from failure.",
-    "tags": ["Success"],
-    "authorSlug": "colin-powell",
-    "length": 103,
-    "dateAdded": "2022-07-06",
-    "dateModified": "2023-04-14"
-  },
-  {
-    "_id": "oPuec6Zts4",
-    "author": "Seneca the Younger",
-    "content": "If one does not know to which port one is sailing, no wind is favorable.",
-    "tags": ["Wisdom"],
-    "authorSlug": "seneca-the-younger",
-    "length": 72,
     "dateAdded": "2022-07-06",
     "dateModified": "2023-04-14"
   },
@@ -1806,26 +1489,6 @@
     "tags": ["Sports", "Competition"],
     "authorSlug": "knute-rockne",
     "length": 74,
-    "dateAdded": "2022-07-06",
-    "dateModified": "2023-04-14"
-  },
-  {
-    "_id": "Wp2A_oOWNEq",
-    "author": "Muhammad Ali",
-    "content": "It's just a job. Grass grows, birds fly, waves pound the sand. I beat people up.",
-    "tags": ["Sports"],
-    "authorSlug": "muhammad-ali",
-    "length": 80,
-    "dateAdded": "2022-07-06",
-    "dateModified": "2023-04-14"
-  },
-  {
-    "_id": "pNnzE7wpM0W",
-    "author": "Dee Hock",
-    "content": "An organization, no matter how well designed, is only as good as the people who live and work in it.",
-    "tags": ["Business"],
-    "authorSlug": "dee-hock",
-    "length": 100,
     "dateAdded": "2022-07-06",
     "dateModified": "2023-04-14"
   },
@@ -1879,16 +1542,7 @@
     "dateAdded": "2022-07-06",
     "dateModified": "2023-04-14"
   },
-  {
-    "_id": "lTm3ZNHDrh7",
-    "author": "Bob Knight",
-    "content": "You don't play against opponents, you play against the game of basketball.",
-    "tags": ["Sports", "Competition"],
-    "authorSlug": "bob-knight",
-    "length": 74,
-    "dateAdded": "2022-07-06",
-    "dateModified": "2023-04-14"
-  },
+
   {
     "_id": "lpxXplIA4ie",
     "author": "Yogi Berra",
@@ -1986,16 +1640,6 @@
     "tags": ["Sports", "Competition"],
     "authorSlug": "billie-jean-king",
     "length": 102,
-    "dateAdded": "2022-07-06",
-    "dateModified": "2023-04-14"
-  },
-  {
-    "_id": "yq5LCWQjDJU",
-    "author": "Niccolò Machiavelli",
-    "content": "No enterprise is more likely to succeed than one concealed from the enemy until it is ripe for execution.",
-    "tags": ["Business"],
-    "authorSlug": "niccolo-machiavelli",
-    "length": 105,
     "dateAdded": "2022-07-06",
     "dateModified": "2023-04-14"
   },
