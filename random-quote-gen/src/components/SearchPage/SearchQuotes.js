@@ -1,5 +1,6 @@
 import tachyons from "tachyons";
 import { CardInfo } from "./CardInfo";
+import ErrorBoundry from "../../ErrorBoundary";
 import "../../index.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
@@ -15,6 +16,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { goDarkMode, goLightMode } from "../../Redux/Action";
 import { Link } from "react-router-dom";
+
+//////////////////////////////////////////////////
+//////////////////////////////////////////////////
+//////////////////////////////////////////////////
 
 export const SearchQuotes = () => {
   // I did not export bc of getter vs setter error when using logic for changing array colors in dark mode
@@ -74,6 +79,12 @@ export const SearchQuotes = () => {
   const [search, setSearch] = useState("");
   const [filteredResults, setFilteredResults] = useState([]);
 
+
+ 
+
+  
+
+  // search functionality
   const searchQuotes = (searchValue) => {
     setSearch(searchValue);
     if (search !== "") {
@@ -84,16 +95,154 @@ export const SearchQuotes = () => {
           .includes(search.toLocaleLowerCase());
       });
       setFilteredResults(filteredData);
-    } 
-    else {
+    } else {
       setFilteredResults(shorterQuotes);
     }
   };
 
+  // ! START OF RETURN
+
   return (
-    <div className="search-container tc">
-      <div className="search-icon-container mb4">
-        {/* icon 1 */}
+    <div 
+    className="search-container tc">
+      <>
+        <div className="search-icon-container mb4">
+          <Link to="/">
+            <FontAwesomeIcon
+              icon={faHome}
+              size="2x"
+              style={{
+                color: colors[newColorState],
+                transition: "all .5s ease-in-out",
+              }}
+            />
+          </Link>
+
+          {lightMode ? (
+            <FontAwesomeIcon
+              className=""
+              style={{
+                color: colors[newColorState],
+                transition: "all .5s ease-in-out",
+                cursor: "pointer",
+              }}
+              icon={faMoon}
+              size="2x"
+              onClick={() => {
+                dispatch(goDarkMode());
+              }}
+            />
+          ) : (
+            <FontAwesomeIcon
+              className=""
+              style={{
+                color: colors[newColorState],
+                cursor: "pointer",
+                transition: "all .5s ease-in-out",
+              }}
+              icon={faSun}
+              size="2x"
+              onClick={() => {
+                dispatch(goLightMode());
+              }}
+            />
+          )}
+
+          <a href="#back-to-top">
+            <FontAwesomeIcon
+              className="back-to-top"
+              icon={faArrowAltCircleUp}
+              size="2x"
+              style={{
+                color: colors[newColorState],
+                transition: "all .5s ease-in-out",
+              }}
+            />
+          </a>
+        </div>
+
+        <input
+          style={{
+            color: colors[newColorState],
+            border: `solid 4px ${colors[newColorState]}`,
+            backgroundColor: `transparent`,
+          }}
+          onChange={(e) => searchQuotes(e.target.value)}
+          className="tc f6 dim ba bw2 ph3 pv2 mb2 dib"
+          type="search"
+          placeholder="search for quotes..."
+        />
+
+        <ErrorBoundry>
+          <InfiniteScroll
+            className="infinite-scroll mb4"
+            dataLength={shorterQuotes.length}
+            // next={shorterQuotes}
+            hasMore={true} // Replace with a condition based on your data source
+            height={620}
+          >
+            <div id="back-to-top"></div>
+            <div className="card-containers">
+              {search.length > 0
+                ? filteredResults.map((item, index) => {
+                    return (
+                      <CardInfo
+                        index={index + 1}
+                        key={item._id}
+                        quote={item.content}
+                        author={item.author}
+                        expand={false}
+                        
+                        
+                      />
+                    );
+                  })
+                : shorterQuotes.map((item, index) => {
+                    return (
+                      <CardInfo
+                        index={index + 1}
+                        key={item._id}
+                        quote={item.content}
+                        author={item.author}
+                        expand={false}
+                        
+                      />
+                    );
+                  })}
+            </div>
+          </InfiniteScroll>
+        </ErrorBoundry>
+        <footer
+          style={{
+            color: `${colors[newColorState]}`,
+            transition: "all .5s ease-in-out",
+          }}
+          className="tc ma5"
+        >
+          Developed By{" "}
+          <a
+            style={{
+              color: `${colors[newColorState]}`,
+              transition: "all .5s ease-in-out",
+            }}
+            href="https://github.com/cassius2828"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Cassius Reynolds
+          </a>
+        </footer>
+      </>
+    </div>
+  );
+
+  
+
+  /////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////
+  /* <div className="search-icon-container mb4">
+        {/* icon 1 }
         <Link to="/">
           <FontAwesomeIcon
             icon={faHome}
@@ -104,7 +253,7 @@ export const SearchQuotes = () => {
             }}
           />
         </Link>
-        {/* icon 2 */}
+        {/* icon 2 }
         {lightMode ? (
           <FontAwesomeIcon
             className=""
@@ -134,7 +283,7 @@ export const SearchQuotes = () => {
             }}
           />
         )}
-        {/* icon 3 */}
+        {/* icon 3 }
         <a href="#back-to-top">
           <FontAwesomeIcon
             className="back-to-top"
@@ -148,10 +297,7 @@ export const SearchQuotes = () => {
         </a>
       </div>
 
-
-
-
-      {/* Search Button */}
+      {/* Search Button }
       <input
         style={{
           color: colors[newColorState],
@@ -164,45 +310,44 @@ export const SearchQuotes = () => {
         placeholder="search for quotes..."
       />
 
-
-
-
-
-
-      {/* Scroll Display */}
-      <InfiniteScroll
-        className="infinite-scroll mb4"
-        dataLength={shorterQuotes.length}
-        next={shorterQuotes}
-        hasMore={true} // Replace with a condition based on your data source
-        height={620}
-      >
-        <div id="back-to-top"></div>
-        <div className="card-containers">
-          {search.length > 0
-            ? filteredResults.map((item, index) => {
-                return (
-                  <CardInfo
-                    index={index + 1}
-                    key={item._id}
-                    quote={item.content}
-                    author={item.author}
-                  />
-                );
-              })
-            : shorterQuotes.map((item, index) => {
-                return (
-                  <CardInfo
-                    index={index + 1}
-                    key={item._id}
-                    quote={item.content}
-                    author={item.author}
-                  />
-                );
-              })}
-        </div>
-        {/* //!   will style this later */}
-      </InfiniteScroll>
+      <ErrorBoundry>
+        {/* Scroll Display }
+        <InfiniteScroll
+          className="infinite-scroll mb4"
+          dataLength={shorterQuotes.length}
+          // next={shorterQuotes}
+          hasMore={true} // Replace with a condition based on your data source
+          height={620}
+        >
+          <div id="back-to-top"></div>
+          <div className="card-containers">
+            {search.length > 0
+              ? filteredResults.map((item, index) => {
+                  return (
+                    <CardInfo
+                      index={index + 1}
+                      key={item._id}
+                      quote={item.content}
+                      author={item.author}
+                      onClick={handleExpand}
+                    />
+                  );
+                })
+              : shorterQuotes.map((item, index) => {
+                  return (
+                    <CardInfo
+                      index={index + 1}
+                      key={item._id}
+                      quote={item.content}
+                      author={item.author}
+                      onClick={handleExpand}
+                    />
+                  );
+                })}
+          </div>
+          {/* //!   will style this later 
+        </InfiniteScroll>
+      </ErrorBoundry>
       <footer
         style={{
           color: `${colors[newColorState]}`,
@@ -222,10 +367,11 @@ export const SearchQuotes = () => {
         >
           Cassius Reynolds
         </a>
-      </footer>
-    </div>
-  );
+      {/* </footer> */
 };
+// </div> */}
+// );
+// };
 
 //* Will add <Link> to navigate card info, will bring us back to main screen with that quote selected
 //* in order to do this, that change will have to change the state as well. Action creators are the only way to
@@ -247,3 +393,158 @@ Things to do
 
 
 */
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////
+/*
+  
+  <div className="search-icon-container mb4">
+        {/* icon 1 }
+        <Link to="/">
+          <FontAwesomeIcon
+            icon={faHome}
+            size="2x"
+            style={{
+              color: colors[newColorState],
+              transition: "all .5s ease-in-out",
+            }}
+          />
+        </Link>
+        {/* icon 2 }
+        {lightMode ? (
+          <FontAwesomeIcon
+            className=""
+            style={{
+              color: colors[newColorState],
+              transition: "all .5s ease-in-out",
+              cursor: "pointer",
+            }}
+            icon={faMoon}
+            size="2x"
+            onClick={() => {
+              dispatch(goDarkMode());
+            }}
+          />
+        ) : (
+          <FontAwesomeIcon
+            className=""
+            style={{
+              color: colors[newColorState],
+              cursor: "pointer",
+              transition: "all .5s ease-in-out",
+            }}
+            icon={faSun}
+            size="2x"
+            onClick={() => {
+              dispatch(goLightMode());
+            }}
+          />
+        )}
+        {/* icon 3 }
+        <a href="#back-to-top">
+          <FontAwesomeIcon
+            className="back-to-top"
+            icon={faArrowAltCircleUp}
+            size="2x"
+            style={{
+              color: colors[newColorState],
+              transition: "all .5s ease-in-out",
+            }}
+          />
+        </a>
+      </div>
+
+      {/* Search Button }
+      <input
+        style={{
+          color: colors[newColorState],
+          border: `solid 4px ${colors[newColorState]}`,
+          backgroundColor: `transparent`,
+        }}
+        onChange={(e) => searchQuotes(e.target.value)}
+        className="tc f6 dim ba bw2 ph3 pv2 mb2 dib"
+        type="search"
+        placeholder="search for quotes..."
+      />
+
+      <ErrorBoundry>
+        {/* Scroll Display }
+        <InfiniteScroll
+          className="infinite-scroll mb4"
+          dataLength={shorterQuotes.length}
+          // next={shorterQuotes}
+          hasMore={true} // Replace with a condition based on your data source
+          height={620}
+        >
+          <div id="back-to-top"></div>
+          <div className="card-containers">
+            {search.length > 0
+              ? filteredResults.map((item, index) => {
+                  return (
+                    <CardInfo
+                      index={index + 1}
+                      key={item._id}
+                      quote={item.content}
+                      author={item.author}
+                      onClick={handleExpand}
+                    />
+                  );
+                })
+              : shorterQuotes.map((item, index) => {
+                  return (
+                    <CardInfo
+                      index={index + 1}
+                      key={item._id}
+                      quote={item.content}
+                      author={item.author}
+                      onClick={handleExpand}
+                    />
+                  );
+                })}
+          </div>
+          {/* //!   will style this later }
+        </InfiniteScroll>
+      </ErrorBoundry>
+      <footer
+        style={{
+          color: `${colors[newColorState]}`,
+          transition: "all .5s ease-in-out",
+        }}
+        className="tc ma5"
+      >
+        Developed By{" "}
+        <a
+          style={{
+            color: `${colors[newColorState]}`,
+            transition: "all .5s ease-in-out",
+          }}
+          href="https://github.com/cassius2828"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Cassius Reynolds
+        </a>
+      </footer> 
+      
+      
+      //////////////////////////
+      
+      Expand card random route get
+
+- Click on div, sets state to that cards ID
+- Click outside of dic, sets that state to null
+
+const expand, setExpand = useState(null);
+const handleExpand = (e) => {
+console.log(e.shorterQuotes._id);
+}
+
+- Expand will be based on the state
+const IdList = shorterQuotes.map(item._id => {
+  return item._id
+})
+
+shorterQuotes.filter(item._id => {
+  return item._id === expandState
+})
+      
+      */

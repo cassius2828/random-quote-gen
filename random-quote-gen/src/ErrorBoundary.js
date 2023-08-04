@@ -15,7 +15,7 @@ class ErrorBoundry extends Component {
 
   render() {
     return this.state.hasError ? (
-      <h1 style={{ color: "#d61a1a" }}> Error Occured</h1>
+      <h1 style={{ color: "#d61a1a" }}> Oops! Refresh or click out to resume searching for quotes</h1>
     ) : (
       this.props.children
     );

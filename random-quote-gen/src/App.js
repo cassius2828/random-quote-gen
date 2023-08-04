@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import { goLightMode, goDarkMode } from "./Redux/Action";
-import {shorterQuotes} from "./filteredQuotes";
 
 function App() {
   

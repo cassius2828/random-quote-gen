@@ -3,14 +3,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
 import "../../index.css";
 import { useSelector } from "react-redux";
-
-
-
+import { useEffect, useState } from "react";
+import { allTags, filteredTags, flatArr, categories} from "../../filteredQuotes";
+import {all} from "axios";
 
 export const CardInfo = ({
   quote = "lorem sample text that is what this is you already know it boi",
   author = "lorem fait",
-  index = 'unknown'
+  index = "unknown",
 }) => {
   // I did not export bc of getter vs setter error when using logic for changing array colors in dark mode
   let colors = [
@@ -51,73 +51,67 @@ export const CardInfo = ({
   ];
   //////////////////////////////////////////////////
 
+
+  const tagtest = () => {
+    console.log(categories);
+    
+  }
+
+  
   // useSelector
   const lightMode = useSelector((state) => state.light);
 
   // base set up for light mode vs dark mode toggle
   lightMode ? (colors = colors) : (colors = colors2);
   const newColorState = useSelector((state) => state.color);
+
   //////////////////////////////////////////////////
 
   return (
-    <div
-      style={{
-        color: colors[newColorState],
-        border: `solid 2px ${colors[newColorState]}`,
-      }}
-      className="quote-info-box tc mt4"
-      id="quote-info-box"
-    >
-      <h5
-        id="text"
+    <>
+      <div
+      onClick={tagtest}
         style={{
           color: colors[newColorState],
-          transition: "all .5s ease-in-out",
+          border: `solid 2px ${colors[newColorState]}`,
         }}
-        className="pa3 pt2"
+        className="quote-info-box tc mt4"
+        id="quote-info-box"
       >
-        <FontAwesomeIcon
+        <h5
+          id="text"
           style={{
             color: colors[newColorState],
             transition: "all .5s ease-in-out",
           }}
-          icon={faQuoteLeft}
-        />
-        {quote}
-      </h5>
-      <p
-        style={{
-          color: colors[newColorState],
-          transition: "all .5s ease-in-out",
-        }}
-      >
-        - {author}
-      </p>
-      <p
-        style={{
-          color: colors[newColorState],
-          transition: "all .5s ease-in-out",
-        }}
-      >
-        Quote #{index}
-      </p>
-    </div>
+          className="pa3 pt2"
+        >
+          <FontAwesomeIcon
+            style={{
+              color: colors[newColorState],
+              transition: "all .5s ease-in-out",
+            }}
+            icon={faQuoteLeft}
+          />
+          {quote}
+        </h5>
+        <p
+          style={{
+            color: colors[newColorState],
+            transition: "all .5s ease-in-out",
+          }}
+        >
+          - {author}
+        </p>
+        <p
+          style={{
+            color: colors[newColorState],
+            transition: "all .5s ease-in-out",
+          }}
+        >
+          {/* Quote #{index} */}
+        </p>
+      </div>
+    </>
   );
 };
-
-// lorem sample text that is what this is you already know it boi
-// lorem fait
-
-
-/*
-
-
-
-
-const [clickState, setClickState] = useState(0);
-
-<Link 
-path='/',
-onClick={() => setClickState(props.index)}
-
-*/

@@ -6,6 +6,7 @@ import { faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import data from "../../quotes.json";
 import { shorterQuotes } from "../../filteredQuotes";
+import { listOfTags } from "../../filteredQuotes";
 
 // exports
 

@@ -25,6 +25,11 @@ code {
   scroll-behavior: smooth;
 }
 
+/** temporary stop to _this.props error on scroll. Does not break the app but error continues to come up */
+/* iframe {
+  display: none;
+} */
+
 /* text */
 
 #text {
