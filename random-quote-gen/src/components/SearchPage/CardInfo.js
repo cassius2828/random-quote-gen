@@ -6,11 +6,12 @@ import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { allTags, filteredTags, flatArr, categories} from "../../filteredQuotes";
 import {all} from "axios";
+import { shorterQuotes } from "../../filteredQuotes";
 
 export const CardInfo = ({
   quote = "lorem sample text that is what this is you already know it boi",
   author = "lorem fait",
-  index = "unknown",
+  number = "unknown",
 }) => {
   // I did not export bc of getter vs setter error when using logic for changing array colors in dark mode
   let colors = [
@@ -109,7 +110,7 @@ export const CardInfo = ({
             transition: "all .5s ease-in-out",
           }}
         >
-          {/* Quote #{index} */}
+          Quote #{number + 1}
         </p>
       </div>
     </>

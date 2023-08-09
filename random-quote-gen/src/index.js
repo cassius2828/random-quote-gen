@@ -38,3 +38,15 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+
+//! things to do
+/*
+1: figure out how to pass state from searchQuotes to Text
+2: See if you can add a dynamic route to each card to go to when clicked
+3: Add select tab with categories, have them disappear as input e.target.value is updated,
+of course, cards displayed will be updated as well
+3b: do I need to add another filtered list to be rendered for category? 
+
+
+*/

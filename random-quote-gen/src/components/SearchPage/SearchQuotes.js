@@ -100,6 +100,12 @@ export const SearchQuotes = () => {
     }
   };
 
+  const grabCard = (selector) => {
+    const theCard = document.getElementById(selector);
+    
+
+  }
+
   // ! START OF RETURN
 
   return (
@@ -192,6 +198,8 @@ export const SearchQuotes = () => {
                         quote={item.content}
                         author={item.author}
                         expand={false}
+                        number={item.quote}
+                        onClick={() => grabCard(item._id)}
                         
                         
                       />
@@ -205,7 +213,7 @@ export const SearchQuotes = () => {
                         quote={item.content}
                         author={item.author}
                         expand={false}
-                        
+                        number={item.quote}
                       />
                     );
                   })}

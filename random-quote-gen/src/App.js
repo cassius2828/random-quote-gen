@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Card from "./components/MainPage/Card";
 import tachyons from "tachyons";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,8 +7,12 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import { goLightMode, goDarkMode } from "./Redux/Action";
+import {shorterQuotes} from "./filteredQuotes";
 
 function App() {
+  useEffect(() => {
+    console.log(shorterQuotes);
+  }, [])
   
   // I did not export bc of getter vs setter error when using logic for changing array colors in dark mode
   let colors = [

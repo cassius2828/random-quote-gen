@@ -5,11 +5,18 @@ const unique = data.filter(
   (obj, index) => data.findIndex((item) => item._id === obj._id) === index
 );
 
-export const shorterQuotes = unique.filter((item) => {
+export let shorterQuotes = unique.filter((item) => {
   if (item.content.length < 154) {
     return item;
   }
 });
+// obtained an index that will not reset based on filtered array
+let count = 0
+ shorterQuotes = shorterQuotes.map((item, index) => {
+  
+return {...item, quote: count++}
+
+ })
 
 export const allTags = data.map(item => {
   return item.tags
