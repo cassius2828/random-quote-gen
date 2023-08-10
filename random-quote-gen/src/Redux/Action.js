@@ -9,6 +9,7 @@ export const DECREMENT_COLOR = "DECREMENT_COLOR";
 export const JUMP_STATE = "JUMP_STATE";
 export const DARK_MODE = "DARK_MODE";
 export const LIGHT_MODE = "LIGHT_MODE";
+export const GRAB_CARD = "GRAB_CARD";
 
 
 // action creators
@@ -79,3 +80,10 @@ export const goLightMode = () => {
     type: LIGHT_MODE,
   };
 };
+
+export const grabCard = () => {
+  return {
+    type: GRAB_CARD,
+  };
+};
+

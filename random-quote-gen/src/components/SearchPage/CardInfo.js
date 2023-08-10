@@ -2,16 +2,19 @@ import tachyons from "tachyons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
 import "../../index.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { allTags, filteredTags, flatArr, categories} from "../../filteredQuotes";
 import {all} from "axios";
 import { shorterQuotes } from "../../filteredQuotes";
+import {grabCard} from "../../Redux/Action";
 
 export const CardInfo = ({
   quote = "lorem sample text that is what this is you already know it boi",
   author = "lorem fait",
   number = "unknown",
+  onClick,
+  cardId
 }) => {
   // I did not export bc of getter vs setter error when using logic for changing array colors in dark mode
   let colors = [
@@ -53,10 +56,10 @@ export const CardInfo = ({
   //////////////////////////////////////////////////
 
 
-  const tagtest = () => {
-    console.log(categories);
+  // const tagtest = () => {
+  //   console.log(categories);
     
-  }
+  // }
 
   
   // useSelector
@@ -65,19 +68,25 @@ export const CardInfo = ({
   // base set up for light mode vs dark mode toggle
   lightMode ? (colors = colors) : (colors = colors2);
   const newColorState = useSelector((state) => state.color);
+const dispatch = useDispatch();
+  const test = () => {
+    dispatch(grabCard());
+    console.log(cardId);
+  }
 
   //////////////////////////////////////////////////
 
   return (
     <>
       <div
-      onClick={tagtest}
+      id={cardId}
+      onClick={() => test()}
         style={{
           color: colors[newColorState],
           border: `solid 2px ${colors[newColorState]}`,
         }}
         className="quote-info-box tc mt4"
-        id="quote-info-box"
+        // id="quote-info-box"
       >
         <h5
           id="text"

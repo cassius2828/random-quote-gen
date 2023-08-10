@@ -9,6 +9,7 @@ import {
   JUMP_STATE,
   LIGHT_MODE,
   DARK_MODE,
+  GRAB_CARD,
 } from "./Action";
 
 // const 0 = useSelector((state) => state.quote);
@@ -52,6 +53,15 @@ const toggleLightModeReducer = (state = true, action) => {
   }
 };
 
+const grabCardReducer = (state = -1, action) => {
+  switch (action.type) {
+    case GRAB_CARD:
+      return (state = action.quote);
+    default:
+      return state;
+  }
+};
+
 // const jumpStateReducer = (state, action) => {
 //   switch(action.type) {
 //     case JUMP_STATE:
@@ -63,4 +73,5 @@ export const rootReducer = combineReducers({
   color: colorReducer,
   quote: quoteReducer,
   light: toggleLightModeReducer,
+  grabCard: grabCardReducer
 });

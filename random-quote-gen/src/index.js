@@ -48,5 +48,15 @@ reportWebVitals();
 of course, cards displayed will be updated as well
 3b: do I need to add another filtered list to be rendered for category? 
 
+4: perhaps I DONT need a new state bc potential issues if I go back to home screen 
+extra thoughts: create a new path for clickable element, that path will display the card 
+alone with no back or forward buttons, only a home button
+- I may want to mutate the original quote state on the click of the element
+I understand that is not 'good practice' but I do not see the harm in a small personal
+project. But I understand the desire for pure functions on a large scale project
+
+One thing my app lacks is time travel upon random quotes BUT it is a RANDOM QUOTE generator
+so honestly that is not a problem, but for other applications I can see how it would be
+
 
 */

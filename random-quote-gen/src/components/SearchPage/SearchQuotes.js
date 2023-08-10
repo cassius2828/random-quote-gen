@@ -3,7 +3,7 @@ import { CardInfo } from "./CardInfo";
 import ErrorBoundry from "../../ErrorBoundary";
 import "../../index.css";
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // import { data } from "./TestAPI";
 import { shorterQuotes } from "../../filteredQuotes";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -14,7 +14,7 @@ import {
   faSun,
   faHome,
 } from "@fortawesome/free-solid-svg-icons";
-import { goDarkMode, goLightMode } from "../../Redux/Action";
+import { goDarkMode, goLightMode, grabCard } from "../../Redux/Action";
 import { Link } from "react-router-dom";
 
 //////////////////////////////////////////////////
@@ -22,6 +22,7 @@ import { Link } from "react-router-dom";
 //////////////////////////////////////////////////
 
 export const SearchQuotes = () => {
+  
   // I did not export bc of getter vs setter error when using logic for changing array colors in dark mode
   let colors = [
     "#d61a1a",
@@ -100,10 +101,11 @@ export const SearchQuotes = () => {
     }
   };
 
-  const grabCard = (selector) => {
+  const grabCard1 = (selector) => {
     const theCard = document.getElementById(selector);
     
-
+    console.log(theCard);
+    console.log('hi');
   }
 
   // ! START OF RETURN
@@ -190,30 +192,31 @@ export const SearchQuotes = () => {
             <div id="back-to-top"></div>
             <div className="card-containers">
               {search.length > 0
-                ? filteredResults.map((item, index) => {
+                ? filteredResults.map((item) => {
                     return (
                       <CardInfo
-                        index={index + 1}
+                      cardId={item._id}
                         key={item._id}
                         quote={item.content}
                         author={item.author}
                         expand={false}
                         number={item.quote}
-                        onClick={() => grabCard(item._id)}
+                        // onClick={grabCard1(item._id)}
                         
                         
                       />
                     );
                   })
-                : shorterQuotes.map((item, index) => {
+                : shorterQuotes.map((item) => {
                     return (
                       <CardInfo
-                        index={index + 1}
+                        cardId={item._id}
                         key={item._id}
                         quote={item.content}
                         author={item.author}
                         expand={false}
                         number={item.quote}
+                        // onClick={grabCard1(item._id)}
                       />
                     );
                   })}
