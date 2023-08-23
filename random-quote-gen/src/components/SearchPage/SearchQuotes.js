@@ -216,7 +216,6 @@ export const SearchQuotes = () => {
                         author={item.author}
                         expand={false}
                         number={item.quote}
-                        // onClick={grabCard1(item._id)}
                       />
                     );
                   })}
