@@ -5,7 +5,7 @@ import "../../index.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 // import { data } from "./TestAPI";
-import { shorterQuotes } from "../../filteredQuotes";
+import { shorterQuotes, categories } from "../../filteredQuotes";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -22,7 +22,7 @@ import { Link } from "react-router-dom";
 //////////////////////////////////////////////////
 
 export const SearchQuotes = () => {
-  
+  const [category, setCategory] = useState("");
   // I did not export bc of getter vs setter error when using logic for changing array colors in dark mode
   let colors = [
     "#d61a1a",
@@ -75,15 +75,25 @@ export const SearchQuotes = () => {
   //////////////////////////////////////////////////
 
   const dispatch = useDispatch();
-
+  // global and local state
   const newColorState = useSelector((state) => state.color);
   const [search, setSearch] = useState("");
   const [filteredResults, setFilteredResults] = useState([]);
+  const [dblFiltered, setDblFiltered] = useState([]);
+  const [searchToggle, setSearchToggle] = useState(false);
 
+  // * filters quotes in drop down
+  let updatedList = shorterQuotes.filter((item) => {
+    return item.tags[2]
+      ? item.tags[0] === category ||
+          item.tags[1] === category ||
+          item.tags[2] === category
+      : item.tags[0] === category || item.tags[1] === category;
+  });
 
- 
-
-  
+  useEffect(() => {
+    console.log(updatedList);
+  }, [category]);
 
   // search functionality
   const searchQuotes = (searchValue) => {
@@ -101,18 +111,44 @@ export const SearchQuotes = () => {
     }
   };
 
-  const grabCard1 = (selector) => {
-    const theCard = document.getElementById(selector);
-    
-    console.log(theCard);
-    console.log('hi');
-  }
+  // searches through already categorized quotes
+  const searchCategoryQuotes = (searchValue) => {
+    setSearch(searchValue);
+    if (search !== "") {
+      const filteredData = updatedList.filter((item) => {
+        return Object.values(item)
+          .join(" ")
+          .toLocaleLowerCase()
+          .includes(search.toLocaleLowerCase());
+      });
+      setDblFiltered(filteredData);
+    } else {
+      setDblFiltered(updatedList);
+    }
+  };
 
+  // updates category state
+  const handleCategoryChange = () => {
+    const select = document.getElementById("dropdown-filter").value;
+    setCategory(select);
+  };
+
+  // alternates search bars to search through the correct lists
+  useEffect(() => {
+    handleCategoryChange();
+    if (category !== "") {
+      setSearchToggle(false);
+    } else {
+      setSearchToggle(true);
+    }
+    console.log(category);
+  }, [category]);
+
+  // //////////////////
   // ! START OF RETURN
-
+  // //////////////////
   return (
-    <div 
-    className="search-container tc">
+    <div className="search-container tc">
       <>
         <div className="search-icon-container mb4">
           <Link to="/">
@@ -169,17 +205,49 @@ export const SearchQuotes = () => {
           </a>
         </div>
 
-        <input
-          style={{
-            color: colors[newColorState],
-            border: `solid 4px ${colors[newColorState]}`,
-            backgroundColor: `transparent`,
-          }}
-          onChange={(e) => searchQuotes(e.target.value)}
-          className="tc f6 dim ba bw2 ph3 pv2 mb2 dib"
-          type="search"
-          placeholder="search for quotes..."
-        />
+        <div className="filter-container">
+          {/* switching the search toggle value worked! lets go */}
+          {!searchToggle ? (
+            // dbl search
+            <input
+              style={{
+                color: lightMode ? colors[newColorState] : "whitesmoke",
+                border: `solid 4px ${colors[newColorState]}`,
+                backgroundColor: `transparent`,
+              }}
+              onChange={(e) => searchCategoryQuotes(e.target.value)}
+              className="tc f6 ba bw2 ph3 pv2 mb2 dib"
+              type="search"
+              placeholder="search for quotes..."
+            />
+          ) : (
+            // single search
+            <input
+              style={{
+                color: lightMode ? colors[newColorState] : "whitesmoke",
+                border: `solid 4px ${colors[newColorState]}`,
+                backgroundColor: `transparent`,
+              }}
+              onChange={(e) => searchQuotes(e.target.value)}
+              className="tc f6 ba bw2 ph3 pv2 mb2 dib"
+              type="search"
+              placeholder="search for quotes..."
+            />
+          )}
+          <select
+            className="tc f6 ba bw2 ph3  mb2 dib"
+            style={{
+              border: `solid 4px ${colors[newColorState]}`,
+            }}
+            onChange={handleCategoryChange}
+            id="dropdown-filter"
+          >
+            <option key="blank"></option>
+            {categories.map((item) => {
+              return <option key={item}>{item}</option>;
+            })}
+          </select>
+        </div>
 
         <ErrorBoundry>
           <InfiniteScroll
@@ -191,34 +259,67 @@ export const SearchQuotes = () => {
           >
             <div id="back-to-top"></div>
             <div className="card-containers">
-              {search.length > 0
-                ? filteredResults.map((item) => {
-                    return (
-                      <CardInfo
-                      cardId={item._id}
-                        key={item._id}
-                        quote={item.content}
-                        author={item.author}
-                        expand={false}
-                        number={item.quote}
-                        // onClick={grabCard1(item._id)}
-                        
-                        
-                      />
-                    );
-                  })
-                : shorterQuotes.map((item) => {
-                    return (
-                      <CardInfo
-                        cardId={item._id}
-                        key={item._id}
-                        quote={item.content}
-                        author={item.author}
-                        expand={false}
-                        number={item.quote}
-                      />
-                    );
-                  })}
+              {
+                // * if a category is selected and the search bar is active then
+                // * search filter thru the categorized list
+                category !== "" && search.length > 0
+                  ? dblFiltered.map((item) => {
+                      return (
+                        <CardInfo
+                          cardId={item._id}
+                          key={item._id}
+                          quote={item.content}
+                          author={item.author}
+                          expand={false}
+                          number={item.quote}
+                          // onClick={grabCard1(item._id)}
+                        />
+                      );
+                    })
+                  : // * if a category is selected, filter by category
+                  category !== ""
+                  ? updatedList.map((item) => {
+                      return (
+                        <CardInfo
+                          cardId={item._id}
+                          key={item._id}
+                          quote={item.content}
+                          author={item.author}
+                          expand={false}
+                          number={item.quote}
+                          // onClick={grabCard1(item._id)}
+                        />
+                      );
+                    })
+                  : // * if no category is selected, filter by search
+                  search.length > 0
+                  ? filteredResults.map((item) => {
+                      return (
+                        <CardInfo
+                          cardId={item._id}
+                          key={item._id}
+                          quote={item.content}
+                          author={item.author}
+                          expand={false}
+                          number={item.quote}
+                          // onClick={grabCard1(item._id)}
+                        />
+                      );
+                    })
+                  : // * if none are true then return whole list
+                    shorterQuotes.map((item) => {
+                      return (
+                        <CardInfo
+                          cardId={item._id}
+                          key={item._id}
+                          quote={item.content}
+                          author={item.author}
+                          expand={false}
+                          number={item.quote}
+                        />
+                      );
+                    })
+              }
             </div>
           </InfiniteScroll>
         </ErrorBoundry>
@@ -245,316 +346,4 @@ export const SearchQuotes = () => {
       </>
     </div>
   );
-
-  
-
-  /////////////////////////////////////////////////////////////
-  /////////////////////////////////////////////////////////////
-  ////////////////////////////////////////////////////////////
-  /* <div className="search-icon-container mb4">
-        {/* icon 1 }
-        <Link to="/">
-          <FontAwesomeIcon
-            icon={faHome}
-            size="2x"
-            style={{
-              color: colors[newColorState],
-              transition: "all .5s ease-in-out",
-            }}
-          />
-        </Link>
-        {/* icon 2 }
-        {lightMode ? (
-          <FontAwesomeIcon
-            className=""
-            style={{
-              color: colors[newColorState],
-              transition: "all .5s ease-in-out",
-              cursor: "pointer",
-            }}
-            icon={faMoon}
-            size="2x"
-            onClick={() => {
-              dispatch(goDarkMode());
-            }}
-          />
-        ) : (
-          <FontAwesomeIcon
-            className=""
-            style={{
-              color: colors[newColorState],
-              cursor: "pointer",
-              transition: "all .5s ease-in-out",
-            }}
-            icon={faSun}
-            size="2x"
-            onClick={() => {
-              dispatch(goLightMode());
-            }}
-          />
-        )}
-        {/* icon 3 }
-        <a href="#back-to-top">
-          <FontAwesomeIcon
-            className="back-to-top"
-            icon={faArrowAltCircleUp}
-            size="2x"
-            style={{
-              color: colors[newColorState],
-              transition: "all .5s ease-in-out",
-            }}
-          />
-        </a>
-      </div>
-
-      {/* Search Button }
-      <input
-        style={{
-          color: colors[newColorState],
-          border: `solid 4px ${colors[newColorState]}`,
-          backgroundColor: `transparent`,
-        }}
-        onChange={(e) => searchQuotes(e.target.value)}
-        className="tc f6 dim ba bw2 ph3 pv2 mb2 dib"
-        type="search"
-        placeholder="search for quotes..."
-      />
-
-      <ErrorBoundry>
-        {/* Scroll Display }
-        <InfiniteScroll
-          className="infinite-scroll mb4"
-          dataLength={shorterQuotes.length}
-          // next={shorterQuotes}
-          hasMore={true} // Replace with a condition based on your data source
-          height={620}
-        >
-          <div id="back-to-top"></div>
-          <div className="card-containers">
-            {search.length > 0
-              ? filteredResults.map((item, index) => {
-                  return (
-                    <CardInfo
-                      index={index + 1}
-                      key={item._id}
-                      quote={item.content}
-                      author={item.author}
-                      onClick={handleExpand}
-                    />
-                  );
-                })
-              : shorterQuotes.map((item, index) => {
-                  return (
-                    <CardInfo
-                      index={index + 1}
-                      key={item._id}
-                      quote={item.content}
-                      author={item.author}
-                      onClick={handleExpand}
-                    />
-                  );
-                })}
-          </div>
-          {/* //!   will style this later 
-        </InfiniteScroll>
-      </ErrorBoundry>
-      <footer
-        style={{
-          color: `${colors[newColorState]}`,
-          transition: "all .5s ease-in-out",
-        }}
-        className="tc ma5"
-      >
-        Developed By{" "}
-        <a
-          style={{
-            color: `${colors[newColorState]}`,
-            transition: "all .5s ease-in-out",
-          }}
-          href="https://github.com/cassius2828"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Cassius Reynolds
-        </a>
-      {/* </footer> */
 };
-// </div> */}
-// );
-// };
-
-//* Will add <Link> to navigate card info, will bring us back to main screen with that quote selected
-//* in order to do this, that change will have to change the state as well. Action creators are the only way to
-//*change state in such a way right? So I will need to look into that
-//? OR, I could make it to where when a card is clicked all other cards disappear and this one grows??
-//?which ever concept is more feasable I will pursue
-
-/*
-Things to do
-1: Add dropdown filter by category
-2: make cards clickable and take you to the main screen with the state updated to that card number
-3: style buttons in search section
-4: style the error report when you try to hit next or previous quote on first load
-5: make site fully resposnive 
-5b: take away duplicates and clean number code to match the new length of the data
-6: put it up on github
-7: make a copy and pass the necessary tests for FCC
-
-
-
-*/
-///////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////
-/*
-  
-  <div className="search-icon-container mb4">
-        {/* icon 1 }
-        <Link to="/">
-          <FontAwesomeIcon
-            icon={faHome}
-            size="2x"
-            style={{
-              color: colors[newColorState],
-              transition: "all .5s ease-in-out",
-            }}
-          />
-        </Link>
-        {/* icon 2 }
-        {lightMode ? (
-          <FontAwesomeIcon
-            className=""
-            style={{
-              color: colors[newColorState],
-              transition: "all .5s ease-in-out",
-              cursor: "pointer",
-            }}
-            icon={faMoon}
-            size="2x"
-            onClick={() => {
-              dispatch(goDarkMode());
-            }}
-          />
-        ) : (
-          <FontAwesomeIcon
-            className=""
-            style={{
-              color: colors[newColorState],
-              cursor: "pointer",
-              transition: "all .5s ease-in-out",
-            }}
-            icon={faSun}
-            size="2x"
-            onClick={() => {
-              dispatch(goLightMode());
-            }}
-          />
-        )}
-        {/* icon 3 }
-        <a href="#back-to-top">
-          <FontAwesomeIcon
-            className="back-to-top"
-            icon={faArrowAltCircleUp}
-            size="2x"
-            style={{
-              color: colors[newColorState],
-              transition: "all .5s ease-in-out",
-            }}
-          />
-        </a>
-      </div>
-
-      {/* Search Button }
-      <input
-        style={{
-          color: colors[newColorState],
-          border: `solid 4px ${colors[newColorState]}`,
-          backgroundColor: `transparent`,
-        }}
-        onChange={(e) => searchQuotes(e.target.value)}
-        className="tc f6 dim ba bw2 ph3 pv2 mb2 dib"
-        type="search"
-        placeholder="search for quotes..."
-      />
-
-      <ErrorBoundry>
-        {/* Scroll Display }
-        <InfiniteScroll
-          className="infinite-scroll mb4"
-          dataLength={shorterQuotes.length}
-          // next={shorterQuotes}
-          hasMore={true} // Replace with a condition based on your data source
-          height={620}
-        >
-          <div id="back-to-top"></div>
-          <div className="card-containers">
-            {search.length > 0
-              ? filteredResults.map((item, index) => {
-                  return (
-                    <CardInfo
-                      index={index + 1}
-                      key={item._id}
-                      quote={item.content}
-                      author={item.author}
-                      onClick={handleExpand}
-                    />
-                  );
-                })
-              : shorterQuotes.map((item, index) => {
-                  return (
-                    <CardInfo
-                      index={index + 1}
-                      key={item._id}
-                      quote={item.content}
-                      author={item.author}
-                      onClick={handleExpand}
-                    />
-                  );
-                })}
-          </div>
-          {/* //!   will style this later }
-        </InfiniteScroll>
-      </ErrorBoundry>
-      <footer
-        style={{
-          color: `${colors[newColorState]}`,
-          transition: "all .5s ease-in-out",
-        }}
-        className="tc ma5"
-      >
-        Developed By{" "}
-        <a
-          style={{
-            color: `${colors[newColorState]}`,
-            transition: "all .5s ease-in-out",
-          }}
-          href="https://github.com/cassius2828"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Cassius Reynolds
-        </a>
-      </footer> 
-      
-      
-      //////////////////////////
-      
-      Expand card random route get
-
-- Click on div, sets state to that cards ID
-- Click outside of dic, sets that state to null
-
-const expand, setExpand = useState(null);
-const handleExpand = (e) => {
-console.log(e.shorterQuotes._id);
-}
-
-- Expand will be based on the state
-const IdList = shorterQuotes.map(item._id => {
-  return item._id
-})
-
-shorterQuotes.filter(item._id => {
-  return item._id === expandState
-})
-      
-      */

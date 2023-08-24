@@ -16,7 +16,7 @@ code {
 #root {
   display: flex;
   justify-content: center;
-  margin-top: 15rem;
+  margin-top: 2rem;
 }
 
 * {
@@ -69,6 +69,13 @@ code {
   gap: 2rem;
 }
 
+/* * DROPDOWN FILTER */
+
+#dropdown-filter {
+  background-color: transparent;
+  color: white;
+  height: 2rem;
+}
 
 /* icons in search section */
 
@@ -76,4 +83,27 @@ code {
   width: 100%;
   display: flex;
   justify-content: space-around;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: auto 4rem;
+  border: solid 2px lime;
+}
+
+/* one of the classes for the search input and dropdown select filters */
+
+.f6 {
+  width: 12rem;
+}
+
+#dropdown-filter {
+  height: 2.5rem;
 }
