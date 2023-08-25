@@ -85,16 +85,15 @@ const dispatch = useDispatch();
           color: colors[newColorState],
           border: `solid 2px ${colors[newColorState]}`,
         }}
-        className="quote-info-box tc mt4"
+        className="quote-info-box tc mt3 pa3"
         // id="quote-info-box"
       >
         <h5
-          id="text"
           style={{
             color: colors[newColorState],
             transition: "all .5s ease-in-out",
           }}
-          className="pa3 pt2"
+          className="mb3"
         >
           <FontAwesomeIcon
             style={{

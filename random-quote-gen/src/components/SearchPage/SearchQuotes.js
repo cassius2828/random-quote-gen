@@ -1,10 +1,9 @@
 import tachyons from "tachyons";
 import { CardInfo } from "./CardInfo";
 import ErrorBoundry from "../../ErrorBoundary";
-import "../../index.css";
+import "../../search.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-// import { data } from "./TestAPI";
 import { shorterQuotes, categories } from "../../filteredQuotes";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -75,6 +74,7 @@ export const SearchQuotes = () => {
   //////////////////////////////////////////////////
 
   const dispatch = useDispatch();
+
   // global and local state
   const newColorState = useSelector((state) => state.color);
   const [search, setSearch] = useState("");
@@ -82,20 +82,34 @@ export const SearchQuotes = () => {
   const [dblFiltered, setDblFiltered] = useState([]);
   const [searchToggle, setSearchToggle] = useState(false);
 
+  // ///////////////////////////////
   // * filters quotes in drop down
-  let updatedList = shorterQuotes.filter((item) => {
-    return item.tags[2]
-      ? item.tags[0] === category ||
-          item.tags[1] === category ||
-          item.tags[2] === category
-      : item.tags[0] === category || item.tags[1] === category;
-  });
+  // ///////////////////////////////
+  const customIncludes = (obj, property, value) => {
+    if (!obj.hasOwnProperty(property)) {
+      return false;
+    }
+    if (Array.isArray(obj[property])) {
+      if (obj[property].includes(value)) {
+        return true;
+      } else if (obj[property] === value) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  };
 
-  useEffect(() => {
-    console.log(updatedList);
-  }, [category]);
+  const filterWrapper = (arrayOfObjects, key, value) => {
+    return arrayOfObjects.filter((obj) => {
+      return customIncludes(obj, key, value);
+    });
+  };
+  const updatedList = filterWrapper(shorterQuotes, "tags", category);
 
+  // ///////////////////////////////
   // search functionality
+  // ///////////////////////////////
   const searchQuotes = (searchValue) => {
     setSearch(searchValue);
     if (search !== "") {
@@ -111,7 +125,9 @@ export const SearchQuotes = () => {
     }
   };
 
+  // ///////////////////////////////
   // searches through already categorized quotes
+  // ///////////////////////////////
   const searchCategoryQuotes = (searchValue) => {
     setSearch(searchValue);
     if (search !== "") {
@@ -127,13 +143,17 @@ export const SearchQuotes = () => {
     }
   };
 
+  // ///////////////////////////////
   // updates category state
+  // ///////////////////////////////
   const handleCategoryChange = () => {
     const select = document.getElementById("dropdown-filter").value;
     setCategory(select);
   };
 
+  // ///////////////////////////////
   // alternates search bars to search through the correct lists
+  // ///////////////////////////////
   useEffect(() => {
     handleCategoryChange();
     if (category !== "") {
@@ -144,6 +164,11 @@ export const SearchQuotes = () => {
     console.log(category);
   }, [category]);
 
+  // ///////////////////////////////
+  // get width of window for placeholder text
+  // ///////////////////////////////
+  const windowWidth = window.innerWidth;
+
   // //////////////////
   // ! START OF RETURN
   // //////////////////
@@ -153,6 +178,7 @@ export const SearchQuotes = () => {
         <div className="search-icon-container mb4">
           <Link to="/">
             <FontAwesomeIcon
+              className="search-icon"
               icon={faHome}
               size="2x"
               style={{
@@ -164,7 +190,7 @@ export const SearchQuotes = () => {
 
           {lightMode ? (
             <FontAwesomeIcon
-              className=""
+              className="search-icon"
               style={{
                 color: colors[newColorState],
                 transition: "all .5s ease-in-out",
@@ -178,7 +204,7 @@ export const SearchQuotes = () => {
             />
           ) : (
             <FontAwesomeIcon
-              className=""
+              className="search-icon"
               style={{
                 color: colors[newColorState],
                 cursor: "pointer",
@@ -194,7 +220,7 @@ export const SearchQuotes = () => {
 
           <a href="#back-to-top">
             <FontAwesomeIcon
-              className="back-to-top"
+              className="back-to-top search-icon"
               icon={faArrowAltCircleUp}
               size="2x"
               style={{
@@ -218,7 +244,9 @@ export const SearchQuotes = () => {
               onChange={(e) => searchCategoryQuotes(e.target.value)}
               className="tc f6 ba bw2 ph3 pv2 mb2 dib"
               type="search"
-              placeholder="search for quotes..."
+              placeholder={
+                windowWidth > 425 ? `search for quotes...` : `search`
+              }
             />
           ) : (
             // single search
@@ -231,13 +259,16 @@ export const SearchQuotes = () => {
               onChange={(e) => searchQuotes(e.target.value)}
               className="tc f6 ba bw2 ph3 pv2 mb2 dib"
               type="search"
-              placeholder="search for quotes..."
+              placeholder={
+                windowWidth > 425 ? `search for quotes...` : `search`
+              }
             />
           )}
           <select
             className="tc f6 ba bw2 ph3  mb2 dib"
             style={{
               border: `solid 4px ${colors[newColorState]}`,
+              color: lightMode ? colors[newColorState] : "whitesmoke",
             }}
             onChange={handleCategoryChange}
             id="dropdown-filter"
@@ -251,17 +282,18 @@ export const SearchQuotes = () => {
 
         <ErrorBoundry>
           <InfiniteScroll
-            className="infinite-scroll mb4"
+            className="infinite-scroll mb4 mt4"
             dataLength={shorterQuotes.length}
-            // next={shorterQuotes}
-            hasMore={true} // Replace with a condition based on your data source
+            hasMore={true}
             height={620}
           >
             <div id="back-to-top"></div>
             <div className="card-containers">
               {
+                // ///////////////////////////////
                 // * if a category is selected and the search bar is active then
                 // * search filter thru the categorized list
+                // ///////////////////////////////
                 category !== "" && search.length > 0
                   ? dblFiltered.map((item) => {
                       return (
@@ -276,7 +308,9 @@ export const SearchQuotes = () => {
                         />
                       );
                     })
-                  : // * if a category is selected, filter by category
+                  : // ///////////////////////////////
+                  // * if a category is selected, filter by category
+                  // ///////////////////////////////
                   category !== ""
                   ? updatedList.map((item) => {
                       return (
@@ -291,7 +325,9 @@ export const SearchQuotes = () => {
                         />
                       );
                     })
-                  : // * if no category is selected, filter by search
+                  : // ///////////////////////////////
+                  // * if no category is selected, filter by search
+                  // ///////////////////////////////
                   search.length > 0
                   ? filteredResults.map((item) => {
                       return (
@@ -306,7 +342,9 @@ export const SearchQuotes = () => {
                         />
                       );
                     })
-                  : // * if none are true then return whole list
+                  : // ///////////////////////////////
+                    // * if none are true then return whole list
+                    // ///////////////////////////////
                     shorterQuotes.map((item) => {
                       return (
                         <CardInfo

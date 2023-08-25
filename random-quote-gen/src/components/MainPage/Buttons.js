@@ -20,12 +20,6 @@ import {
 import { useSelector } from "react-redux";
 import "../../index.css";
 
-
-
-  
-
-
-
 const Buttons = () => {
   // I did not export bc of getter vs setter error when using logic for changing array colors in dark mode
   let colors = [
@@ -82,7 +76,7 @@ const Buttons = () => {
           color: colors[newColorState],
           transition: "all .5s ease-in-out",
         }}
-        className="f6 link dim ba bw2 ph3 pv2 mb2 dib"
+        className="f6 link dim ba bw2 ph3 pv2 mb4 dib"
         href="#0"
         onClick={() => {
           dispatch(newQuote());
@@ -99,7 +93,7 @@ const Buttons = () => {
               transition: "all .5s ease-in-out",
             }}
             size="3x"
-            className="icons"
+            className="icons mb3"
             icon={faSquareTwitter}
           />
         </a>
@@ -114,7 +108,7 @@ const Buttons = () => {
               transition: "all .5s ease-in-out",
             }}
             size="3x"
-            className="icons"
+            className="icons mb3"
             icon={faSquareTumblr}
           />
         </a>
@@ -134,6 +128,7 @@ const Buttons = () => {
             icon={faArrowAltCircleLeft}
           />
           <p
+            className="mt2"
             style={{
               color: colors[newColorState],
               transition: "all .5s ease-in-out",

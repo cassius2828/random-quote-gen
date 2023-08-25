@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import Card from "./components/MainPage/Card";
+// MAINLY STYLED WITH TACHYONS
 import tachyons from "tachyons";
 import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
@@ -52,6 +53,7 @@ function App() {
     "#FFF",
   ];
   const dispatch = useDispatch();
+
   // useSelectors
   const newColorState = useSelector((state) => state.color);
   const lightMode = useSelector((state) => state.light);
@@ -64,8 +66,11 @@ function App() {
   lightMode ? (colors = colors) : (colors = colors2);
 
   return (
-    <div className="tc">
-      <div className="dark-light tc mb4">
+    <div className="main-container">
+      <div className="dark-light tc mb4 mt3">
+        {/* // /////////////////////////////// */}
+        {/* lightmode vs darkmode toggle */}
+        {/* { // ///////////////////////////////} */}
         {lightMode ? (
           <FontAwesomeIcon
             className=""
@@ -96,10 +101,13 @@ function App() {
           />
         )}
       </div>
+      {/* // /////////////////////////////// */}
+      {/* link to search page */}
+      {/* // /////////////////////////////// */}
       <Link to="/search">
         <a
           target="_blank"
-          id="new-quote"
+          id="search-quote"
           style={{
             color: colors[newColorState],
             transition: "all .5s ease-in-out",
@@ -117,6 +125,9 @@ function App() {
         }}
         className="App tc"
       >
+        {/* // /////////////////////////////// */}
+        {/* main content in Card Component */}
+        {/* // /////////////////////////////// */}
         <Card />
       </div>
       <footer

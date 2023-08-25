@@ -1,5 +1,5 @@
 .cardBase {
-  width: 45rem;
+  width: 80vw;
   height: 25rem;
 }
 
@@ -11,7 +11,17 @@
   border-radius: 8px;
 }
 
-/* footer styles */
+.main-container {
+  text-align: center;
+}
+
+/* arrow container */
+.arrow-container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+/* FOOTER */
 
 footer a {
   position: relative;
@@ -41,6 +51,27 @@ footer a:hover::before {
   transform: scaleX(1);
 }
 
-/* .body {
-  background-color: rgb(32, 32, 32);
-} */
+/* ///////////////////// */
+/* ! MEDIA QUERIES TABLET UP */
+/* ///////////////////// */
+
+@media (min-width: 767px) {
+  /* margins and padding of main card container */
+  #new-quote,
+  .cardBase {
+    margin: 1rem 0;
+  }
+  #text {
+    margin-bottom: 3rem;
+  }
+
+  .cardBase {
+    padding: 1rem 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cardBase {
+    width: 60vw;
+  }
+}

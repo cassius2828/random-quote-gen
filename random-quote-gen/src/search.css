@@ -1,0 +1,105 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+
+/* main container */
+.search-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+  overflow-x: hidden;
+}
+
+
+.quote-info-box {
+  width: 15rem;
+  height: 12rem;
+  border-radius: 4px;
+  border: 1px solid black;
+}
+
+.quote-info-box:hover {
+  transform: scale(1.1);
+  transition: all 0.35s ease-in-out;
+  -webkit-box-shadow: 0px 0px 12px -3px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 12px -3px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 12px -3px rgba(0, 0, 0, 0.75);
+}
+
+.card-containers {
+    /* border: solid 2px lime; */
+  display: grid;
+  width: 80vw;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 3fr));
+  place-items: center;
+  gap: 2rem;
+}
+
+/* * DROPDOWN FILTER */
+
+#dropdown-filter {
+  background-color: transparent;
+  color: white;
+  height: 2rem;
+}
+
+/* icons in search section */
+
+.search-icon-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  
+}
+
+
+
+.filter-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: auto 4rem;
+    /* border: solid 2px lime; */
+
+  /* border: solid 2px lime; */
+}
+
+/* one of the classes for the search input and dropdown select filters */
+
+.f6 {
+  width: 12rem;
+}
+
+#dropdown-filter {
+  height: 2.5rem;
+}
+
+
+/* ///////////////// */
+/* ! MEDIA QUERIES UNDER 425px */
+/* ///////////////// */
+
+@media (max-width: 425px) {
+.search-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.f6 {
+  width: 8rem;
+  height: auto;
+}
+
+
+
+.filter-container input, .filter-container input::placeholder {
+    font-size: .75rem;
+    height: 2.5rem;
+}
+
+}

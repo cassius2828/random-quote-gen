@@ -6,7 +6,6 @@ import {
   DECREMENT,
   INCREMENT_COLOR,
   DECREMENT_COLOR,
-  JUMP_STATE,
   LIGHT_MODE,
   DARK_MODE,
   GRAB_CARD,
@@ -62,16 +61,9 @@ const grabCardReducer = (state = -1, action) => {
   }
 };
 
-// const jumpStateReducer = (state, action) => {
-//   switch(action.type) {
-//     case JUMP_STATE:
-//       return
-//   }
-// }
-
 export const rootReducer = combineReducers({
   color: colorReducer,
   quote: quoteReducer,
   light: toggleLightModeReducer,
-  grabCard: grabCardReducer
+  grabCard: grabCardReducer,
 });

@@ -4,9 +4,7 @@ import { faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
 // import axios from "axios";
 // import { useEffect, useState } from "react";
 import { useSelector } from "react-redux/es/hooks/useSelector";
-import data from "../../quotes.json";
 import { shorterQuotes } from "../../filteredQuotes";
-import { listOfTags } from "../../filteredQuotes";
 
 // exports
 
@@ -85,6 +83,7 @@ const Text = () => {
       {" "}
       <div id="quote-box">
         <h2
+          className="mb3"
           id="text"
           style={{
             color: colors[newColorState],
@@ -97,6 +96,7 @@ const Text = () => {
             : " *our api is having difficulties*"}
         </h2>
         <p
+          className="mb3"
           id="author"
           style={{
             color: colors[newColorState],
