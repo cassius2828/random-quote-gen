@@ -19,7 +19,7 @@ const router = createBrowserRouter([
     element: <SearchQuotes />,
   },
   {
-    path: '*',
+    path: '/*',
     element: <Navigate to='/'/>
   }
 ]);
