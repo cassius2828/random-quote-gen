@@ -1,10 +1,10 @@
-*, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
 
 /* main container */
 .search-container {
@@ -14,7 +14,6 @@
   margin-top: 2rem;
   overflow-x: hidden;
 }
-
 
 .quote-info-box {
   width: 15rem;
@@ -32,7 +31,6 @@
 }
 
 .card-containers {
-    /* border: solid 2px lime; */
   display: grid;
   width: 80vw;
   grid-template-columns: repeat(auto-fill, minmax(250px, 3fr));
@@ -54,52 +52,41 @@
   width: 100%;
   display: flex;
   justify-content: space-around;
-  
 }
-
-
 
 .filter-container {
   display: flex;
   justify-content: space-around;
   align-items: center;
   margin: auto 4rem;
-    /* border: solid 2px lime; */
-
-  /* border: solid 2px lime; */
 }
 
 /* one of the classes for the search input and dropdown select filters */
 
-.f6 {
+.search-page-input {
+  padding: 0 0.5rem;
   width: 12rem;
+  height: 2rem;
 }
-
-#dropdown-filter {
-  height: 2.5rem;
-}
-
 
 /* ///////////////// */
 /* ! MEDIA QUERIES UNDER 425px */
 /* ///////////////// */
 
 @media (max-width: 425px) {
-.search-icon {
+  .search-icon {
     width: 1.5rem;
     height: 1.5rem;
-}
+  }
 
-.f6 {
-  width: 8rem;
-  height: auto;
-}
+  .search-page-input {
+    width: 8rem;
+    /* height: auto; */
+  }
 
-
-
-.filter-container input, .filter-container input::placeholder {
-    font-size: .75rem;
-    height: 2.5rem;
-}
-
+  .filter-container input,
+  .filter-container input::placeholder {
+    font-size: 0.75rem;
+    /* height: 2.5rem; */
+  }
 }

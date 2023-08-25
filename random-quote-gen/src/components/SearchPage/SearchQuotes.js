@@ -249,7 +249,7 @@ export const SearchQuotes = () => {
                 backgroundColor: `transparent`,
               }}
               onChange={(e) => searchCategoryQuotes(e.target.value)}
-              className="tc f6 ba bw2 ph3 pv2 mb2 dib"
+              className="search-page-input"
               type="search"
               placeholder={
                 windowWidth > 425 ? `search for quotes...` : `search`
@@ -264,7 +264,7 @@ export const SearchQuotes = () => {
                 backgroundColor: `transparent`,
               }}
               onChange={(e) => searchQuotes(e.target.value)}
-              className="tc f6 ba bw2 ph3 pv2 mb2 dib"
+              className="search-page-input"
               type="search"
               placeholder={
                 windowWidth > 425 ? `search for quotes...` : `search`
@@ -272,7 +272,7 @@ export const SearchQuotes = () => {
             />
           )}
           <select
-            className="tc f6 ba bw2 ph3  mb2 dib"
+            className="search-page-input"
             style={{
               border: `solid 4px ${colors[newColorState]}`,
               color: lightMode ? colors[newColorState] : "whitesmoke",
@@ -305,7 +305,6 @@ export const SearchQuotes = () => {
                   ? dblFiltered.map((item) => {
                       return (
                         <CardInfo
-                         
                           cardId={item._id}
                           key={item._id}
                           quote={item.content}
@@ -323,7 +322,6 @@ export const SearchQuotes = () => {
                   ? updatedList.map((item) => {
                       return (
                         <CardInfo
-                         
                           cardId={item._id}
                           key={item._id}
                           quote={item.content}
@@ -341,7 +339,6 @@ export const SearchQuotes = () => {
                   ? filteredResults.map((item) => {
                       return (
                         <CardInfo
-                         
                           cardId={item._id}
                           key={item._id}
                           quote={item.content}
@@ -358,7 +355,6 @@ export const SearchQuotes = () => {
                     shorterQuotes.map((item) => {
                       return (
                         <CardInfo
-                         
                           cardId={item._id}
                           key={item._id}
                           quote={item.content}
