@@ -1,5 +1,6 @@
 import data from "./quotes.json";
 
+// removes duplicates
 const unique = data.filter(
   (obj, index) => data.findIndex((item) => item._id === obj._id) === index
 );

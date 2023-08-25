@@ -15,13 +15,12 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "search",
+    path: "/search",
     element: <SearchQuotes />,
   },
   {
     path: '/*',
-    // element: <Navigate to='/'/>
-    element: <App/>
+    element: <Navigate to='/'/>
   }
 ]);
 
