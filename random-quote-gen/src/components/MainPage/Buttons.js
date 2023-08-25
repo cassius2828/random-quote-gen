@@ -69,7 +69,7 @@ const Buttons = () => {
   lightMode ? (colors = colors) : (colors = colors2);
 
   return (
-    <div>
+    <div id="quote-box" >
       <a
         id="new-quote"
         style={{

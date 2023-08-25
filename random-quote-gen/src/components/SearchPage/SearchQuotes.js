@@ -13,7 +13,7 @@ import {
   faSun,
   faHome,
 } from "@fortawesome/free-solid-svg-icons";
-import { goDarkMode, goLightMode, grabCard } from "../../Redux/Action";
+import { goDarkMode, goLightMode } from "../../Redux/Action";
 import { Link } from "react-router-dom";
 
 //////////////////////////////////////////////////
@@ -168,12 +168,19 @@ export const SearchQuotes = () => {
   // get width of window for placeholder text
   // ///////////////////////////////
   const windowWidth = window.innerWidth;
+  const resetZoom = () => {
+    window.document.body.style.zoom = 1;
+    console.log("hi");
+  };
 
   // //////////////////
   // ! START OF RETURN
   // //////////////////
   return (
-    <div className="search-container tc">
+    <div
+      // onClick={() => window.document.body.style.zoom = 1}
+      className="search-container tc"
+    >
       <>
         <div className="search-icon-container mb4">
           <Link to="/">
@@ -298,6 +305,7 @@ export const SearchQuotes = () => {
                   ? dblFiltered.map((item) => {
                       return (
                         <CardInfo
+                         
                           cardId={item._id}
                           key={item._id}
                           quote={item.content}
@@ -315,6 +323,7 @@ export const SearchQuotes = () => {
                   ? updatedList.map((item) => {
                       return (
                         <CardInfo
+                         
                           cardId={item._id}
                           key={item._id}
                           quote={item.content}
@@ -332,6 +341,7 @@ export const SearchQuotes = () => {
                   ? filteredResults.map((item) => {
                       return (
                         <CardInfo
+                         
                           cardId={item._id}
                           key={item._id}
                           quote={item.content}
@@ -348,6 +358,7 @@ export const SearchQuotes = () => {
                     shorterQuotes.map((item) => {
                       return (
                         <CardInfo
+                         
                           cardId={item._id}
                           key={item._id}
                           quote={item.content}

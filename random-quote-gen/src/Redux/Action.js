@@ -78,8 +78,3 @@ export const goLightMode = () => {
   };
 };
 
-export const grabCard = () => {
-  return {
-    type: GRAB_CARD,
-  };
-};

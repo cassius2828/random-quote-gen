@@ -60,7 +60,7 @@ function App() {
 
   // base set up for light mode vs dark mode toggle
   lightMode
-    ? (document.body.style.backgroundColor = "white")
+    ? (document.body.style.backgroundColor = "whitesmoke")
     : (document.body.style.backgroundColor = "rgb(32, 32, 32)");
 
   lightMode ? (colors = colors) : (colors = colors2);
