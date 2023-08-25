@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
 
 // react-redux imports
 import { store } from "./Redux/Store";
@@ -18,6 +18,10 @@ const router = createBrowserRouter([
     path: "search",
     element: <SearchQuotes />,
   },
+  {
+    path: '*',
+    element: <Navigate to='/'/>
+  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

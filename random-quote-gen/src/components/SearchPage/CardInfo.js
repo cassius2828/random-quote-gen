@@ -68,23 +68,12 @@ export const CardInfo = ({
   // base set up for light mode vs dark mode toggle
   lightMode ? (colors = colors) : (colors = colors2);
   const newColorState = useSelector((state) => state.color);
-// const dispatch = useDispatch();
-  const test = () => {
-    // dispatch(grabCard());
-    // console.log(cardId);
-  }
-
-   const resetZoom = () => {
-     window.document.body.style.zoom = 1;
-     console.log("hi");
-   };
   //////////////////////////////////////////////////
 
   return (
     <>
       <div
       id={cardId}
-      onClick={resetZoom}
         style={{
           color: colors[newColorState],
           border: `solid 2px ${colors[newColorState]}`,
