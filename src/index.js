@@ -18,10 +18,6 @@ const router = createBrowserRouter([
     path: "/search",
     element: <SearchQuotes />,
   },
-  {
-    path: '/*',
-    element: <Navigate to='/'/>
-  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

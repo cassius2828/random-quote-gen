@@ -69,7 +69,7 @@ const Buttons = () => {
   lightMode ? (colors = colors) : (colors = colors2);
 
   return (
-    <div id="quote-box" >
+    <div id="quote-box">
       <a
         id="new-quote"
         style={{
@@ -86,7 +86,11 @@ const Buttons = () => {
         Random Quote
       </a>
       <div className="container">
-        <a target="_blank" id="tweet-quote" href="twitter.com/intent/tweet">
+        <a
+          target="_blank"
+          id="tweet-quote"
+          href="https://twitter.com/i/flow/login"
+        >
           <FontAwesomeIcon
             style={{
               color: colors[newColorState],
